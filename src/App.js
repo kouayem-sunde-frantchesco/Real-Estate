@@ -1,24 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Navbar from './components/pages/navbar';
+import Dashboard from './components/pages/dashboard';
+import Home from './components/pages/home';
+import About from './components/pages/about';
+import Contact from './components/pages/contact'; 
+import Service from './components/pages/services';
+import Login from './components/pages/login';
+import ForgotPassword from './components/pages/forgotpassword';
+import Signin from './components/pages/signin';
+import Appartement from './components/pages/service/appartement';
+import Chambre from './components/pages/service/chambre';
+import Maison from './components/pages/service/maison';
+import Studio from './components/pages/service/studio';
+import Terrain from './components/pages/service/terrain';
+import Footer from './components/pages/footer';
 
 function App() {
+
+  const [showDashboard, setShowDashboard] = useState(false);
+
+  const toggleDashboard = () => {
+    setShowDashboard(!showDashboard);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar onHamburgerClick={toggleDashboard}/>
+
+      {showDashboard && <Dashboard />} {/* Affichage conditionnel */}
+
+{!showDashboard && (
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+
+{/* pages service */}
+        <Route path="/service/appartement" element={<Appartement />} />
+        <Route path="/service/chambre" element={<Chambre />} />
+        <Route path="/service/maison" element={<Maison />} />
+        <Route path="/service/studio" element={<Studio />} />
+        <Route path="/service/terrain" element={<Terrain />} />
+
+      </Routes>
+
+    )}
+
+      <Footer />
+    </BrowserRouter>
   );
 }
 
