@@ -48,6 +48,7 @@ const Navbar = ({ onHamburgerClick }) => {
 
           <Link to="/contact" className="nav-link">{t('contact')}</Link>
           <Link to="/login" className="nav-link">{t('login')}</Link>
+          <Link to="/notification" className="nav-link">{t('notification')}</Link>
 
           <button onClick={toggleLanguage} className="language-switch">
             <FaGlobe />
@@ -91,6 +92,7 @@ const Navbar = ({ onHamburgerClick }) => {
           </details>
           <Link to="/contact" className="nav-link">{t('contact')}</Link>
           <Link to="/login" className="nav-link">{t('login')}</Link>
+          <Link to="/notification" className="nav-link">{t('notification')}</Link>
 
           <button onClick={toggleLanguage} className="language-switch">
             <FaGlobe />

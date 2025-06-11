@@ -15,6 +15,8 @@ import Chambre from './components/pages/service/chambre';
 import Maison from './components/pages/service/maison';
 import Studio from './components/pages/service/studio';
 import Terrain from './components/pages/service/terrain';
+import Alerte from './components/pages/notification';
+
 import Footer from './components/pages/footer';
 
 function App() {
@@ -40,6 +42,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path='/notification' element={<Alerte />} />
 
 {/* pages service */}
         <Route path="/service/appartement" element={<Appartement />} />

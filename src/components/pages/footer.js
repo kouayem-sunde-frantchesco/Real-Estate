@@ -16,7 +16,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-column">
-          <h4>{t('footer.usefulLinks')}</h4>
+          <h4>{t('Use Links')}</h4>
           <ul>
           <li><Link to="/" className="nav-link">{t('home')}</Link> </li>
           <li><Link to="/about" className="nav-link">{t('about')}</Link></li>
@@ -26,14 +26,14 @@ const Footer = () => {
         </div>
 
         <div className="footer-column">
-          <h4>{t('footer.contact')}</h4>
-          <p>📍 {t('footer.location')}</p>
+          <h4>{t('contact')}</h4>
+          <p>📍 {t('location')}</p>
           <p>📞 +237 655-479-301</p>
           <p>📧 f&simmobilier@gmail.com</p>
         </div>
 
         <div className="footer-column">
-          <h4>{t('footer.followUs')}</h4>
+          <h4>{t('FollowUs')}</h4>
           <div className="social-icons">
             <a href="#"><i className="bx bxl-facebook"></i></a>
             <a href="#"><i className="bx bxl-instagram"></i></a>
@@ -44,7 +44,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} F & S IMMOBILIER. {t('rights')}</p>
+        <p>&copy; {new Date().getFullYear()} F & S IMMOBILIER. {t('Right')}</p>
       </div>
 
       {/* BOUTON RETOUR EN HAUT */}
