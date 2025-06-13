@@ -79,13 +79,11 @@ h2 {
   background-color: #0056b3;
 }
 
-
-
 .whatsapp-button {
   display: inline-block;
   margin-top: 8px;
   padding: 8px 12px;
-  background-color: #25D366;
+  background-color: #1d9b4b;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -96,3 +94,4 @@ h2 {
 .whatsapp-button:hover {
   background-color: #128C7E;
 }
+

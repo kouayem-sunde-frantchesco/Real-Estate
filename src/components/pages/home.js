@@ -39,6 +39,13 @@ const categories4 = [
 const Home = () => {
   return (
     <div className="home-container">
+
+<div className=''>
+  <section className='img'>
+    <img src='./images/image7.jpg'></img>
+  </section>
+</div>
+
       <header
         className="banner"
         style={{
@@ -53,7 +60,8 @@ const Home = () => {
         <h1>Trouvez votre prochain logement facilement</h1>
         <p>Explorez notre sélection de biens immobiliers dans tout le pays.</p>
         <Link to="/service" className="cta-button">Offres Classiques</Link>
-        <Link to="/service" className="cta-button">Offres VIP</Link>
+        <Link to="/service" className="cta-button-vip">Offres VIP</Link>
+        <Link to="/service" className="cta-button-premium">Offres Premium</Link>
         <Link to="/" className="cta-button">
             <a href="https://wa.me/237655479301" id="support" title="Service Client">
               <img src="../images/whatsap.avif"/>  Service Client

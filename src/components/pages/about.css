@@ -29,6 +29,37 @@
   margin-bottom: 0.5rem;
 }
 
+.img-choix{
+  width: 120px;
+  height: 120px;
+}
+
+.img-argent{
+  width: 120px;
+  height: 120px;
+}
+
+.img-suivi{
+  width: 120px;
+  height: 120px;
+}
+
+.img-news{
+  width: 120px;
+  height: 120px;
+}
+
+.header{
+margin-top: 40px;
+margin-bottom: 10px;
+}
+
+.about-container{
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+
 @media (max-width: 768px) {
   .about-container h1 {
     font-size: 2rem;
