@@ -4,35 +4,35 @@ import './home.css';
 // import m8 from '../components/m8.avif';
 
 const categories1 = [
-  { name: 'Maisons', image: '/images/c78.jpg' },
-  { name: 'Appartements', image: '/images/c78.jpg' },
-  { name: 'Studios', image: '/images/c78.jpg' },
+  { name: 'Maisons', image: '/images/m1.avif' },
+  { name: 'Appartements', image: '/images/h4.avif' },
+  { name: 'Studios', image: '/images/m14.jpg' },
   { name: 'Chambres', image: '/images/c78.jpg' },
-  { name: 'Terrains', image: '/images/c78.jpg' },
+  { name: 'Terrains', image: '/images/t1.jpeg' },
 ];
 
 const categories2 = [
-  { name: 'Maisons', image: '/images/c78.jpg' },
-  { name: 'Appartements', image: '/images/c78.jpg' },
-  { name: 'Studios', image: '/images/c78.jpg' },
-  { name: 'Chambres', image: '/images/c78.jpg' },
-  { name: 'Terrains', image: '/images/c78.jpg' },
+  { name: 'Maisons', image: '/images/m5.avif' },
+  { name: 'Appartements', image: '/images/hall5.avif' },
+  { name: 'Studios', image: '/images/m10.avif' },
+  { name: 'Chambres', image: '/images/c5.avif' },
+  { name: 'Terrains', image: '/images/t2.jpeg' },
 ];
 
 const categories3 = [
-  { name: 'Maisons', image: '/images/c78.jpg' },
-  { name: 'Appartements', image: '/images/c78.jpg' },
-  { name: 'Studios', image: '/images/c78.jpg' },
-  { name: 'Chambres', image: '/images/c78.jpg' },
-  { name: 'Terrains', image: '/images/c78.jpg' },
+  { name: 'Maisons', image: '/images/m2.avif' },
+  { name: 'Appartements', image: '/images/hall6.avif' },
+  { name: 'Studios', image: '/images/m12.avif' },
+  { name: 'Chambres', image: '/images/c9.jpg' },
+  { name: 'Terrains', image: '/images/t3.jpg' },
 ];
 
 const categories4 = [
-  { name: 'Maisons', image: '/images/c78.jpg' },
-  { name: 'Appartements', image: '/images/c78.jpg' },
-  { name: 'Studios', image: '/images/c78.jpg' },
-  { name: 'Chambres', image: '/images/c78.jpg' },
-  { name: 'Terrains', image: '/images/c78.jpg' },
+  { name: 'Maisons', image: '/images/m7.avif' },
+  { name: 'Appartements', image: '/images/hall2.avif' },
+  { name: 'Studios', image: '/images/m10.avif' },
+  { name: 'Chambres', image: '/images/c8.jpg' },
+  { name: 'Terrains', image: '/images/t4.avif' },
 ];
 
 
@@ -64,7 +64,7 @@ const Home = () => {
 
 
       <section className="category-section">
-        <h2>Catégories populaires</h2>
+        <h2>Catégories Classiques</h2>
         <div className="category-grid">
           {categories1.map((cat, index) => (
             <Link to={`/service?category=${cat.name.toLowerCase()}`} className="category-card" key={index}>
@@ -77,7 +77,7 @@ const Home = () => {
 
 
       <section className="category-section">
-        <h2>Catégories populaires</h2>
+        <h2>Catégories Classiques</h2>
         <div className="category-grid">
           {categories2.map((cat, index) => (
             <Link to={`/service?category=${cat.name.toLowerCase()}`} className="category-card" key={index}>
@@ -89,7 +89,7 @@ const Home = () => {
       </section>
 
       <section className="category-section">
-        <h2>Catégories populaires</h2>
+        <h2>Catégories VIP</h2>
         <div className="category-grid">
           {categories3.map((cat, index) => (
             <Link to={`/service?category=${cat.name.toLowerCase()}`} className="category-card" key={index}>
@@ -101,7 +101,7 @@ const Home = () => {
       </section>
 
       <section className="category-section">
-        <h2>Catégories populaires</h2>
+        <h2>Catégories VIP</h2>
         <div className="category-grid">
           {categories4.map((cat, index) => (
             <Link to={`/service?category=${cat.name.toLowerCase()}`} className="category-card" key={index}>

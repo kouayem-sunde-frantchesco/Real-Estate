@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/pages/navbar';
-import Dashboard from './components/pages/dashboard';
 import Home from './components/pages/home';
 import About from './components/pages/about';
 import Contact from './components/pages/contact'; 
@@ -21,19 +20,10 @@ import Footer from './components/pages/footer';
 
 function App() {
 
-  const [showDashboard, setShowDashboard] = useState(false);
-
-  const toggleDashboard = () => {
-    setShowDashboard(!showDashboard);
-  };
-
   return (
     <BrowserRouter>
-      <Navbar onHamburgerClick={toggleDashboard}/>
+      <Navbar />
 
-      {showDashboard && <Dashboard />} {/* Affichage conditionnel */}
-
-{!showDashboard && (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -52,8 +42,6 @@ function App() {
         <Route path="/service/terrain" element={<Terrain />} />
 
       </Routes>
-
-    )}
 
       <Footer />
     </BrowserRouter>
