@@ -14,24 +14,15 @@ const servicesData = [
   {
     id: 2,
     type: 'video',
-    src: '/videos/appartement1.mp4', // remplace avec ton vrai fichier vidéo
+    src: '/videos/appartement1.mp4',
     title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
   },
-  {
-    id: 3,
-    type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Studio à louer',
-    price: '150 000 FCFA/mois',
-    location: 'Douala, Akwa',
-    description: 'Studio moderne avec douche interne.',
-  },
 
     {
-    id: 4,
+    id: 1,
     type: 'image',
     src: '/images/c78.jpg',
     title: 'Maison moderne',
@@ -40,26 +31,17 @@ const servicesData = [
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
   },
   {
-    id: 5,
+    id: 2,
     type: 'video',
-    src: '/videos/appartement1.mp4', // remplace avec ton vrai fichier vidéo
+    src: '/videos/appartement1.mp4',
     title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
   },
-  {
-    id: 6,
-    type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Studio à louer',
-    price: '150 000 FCFA/mois',
-    location: 'Douala, Akwa',
-    description: 'Studio moderne avec douche interne.',
-  },
 
     {
-    id: 7,
+    id: 1,
     type: 'image',
     src: '/images/c78.jpg',
     title: 'Maison moderne',
@@ -68,26 +50,17 @@ const servicesData = [
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
   },
   {
-    id: 8,
+    id: 2,
     type: 'video',
-    src: '/videos/appartement1.mp4', // remplace avec ton vrai fichier vidéo
+    src: '/videos/appartement1.mp4',
     title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
   },
-  {
-    id: 9,
-    type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Studio à louer',
-    price: '150 000 FCFA/mois',
-    location: 'Douala, Akwa',
-    description: 'Studio moderne avec douche interne.',
-  },
 
     {
-    id: 10,
+    id: 1,
     type: 'image',
     src: '/images/c78.jpg',
     title: 'Maison moderne',
@@ -96,22 +69,127 @@ const servicesData = [
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
   },
   {
-    id: 11,
+    id: 2,
     type: 'video',
-    src: '/videos/appartement1.mp4', // remplace avec ton vrai fichier vidéo
+    src: '/videos/appartement1.mp4',
     title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
   },
-  {
-    id: 12,
+
+    {
+    id: 1,
     type: 'image',
     src: '/images/c78.jpg',
-    title: 'Studio à louer',
-    price: '150 000 FCFA/mois',
-    location: 'Douala, Akwa',
-    description: 'Studio moderne avec douche interne.',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
+  {
+    id: 2,
+    type: 'video',
+    src: '/videos/appartement1.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+  },
+
+    {
+    id: 1,
+    type: 'image',
+    src: '/images/c78.jpg',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
+  {
+    id: 2,
+    type: 'video',
+    src: '/videos/appartement1.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+  },
+
+    {
+    id: 1,
+    type: 'image',
+    src: '/images/c78.jpg',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
+  {
+    id: 2,
+    type: 'video',
+    src: '/videos/appartement1.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+  },
+
+    {
+    id: 1,
+    type: 'image',
+    src: '/images/c78.jpg',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
+  {
+    id: 2,
+    type: 'video',
+    src: '/videos/appartement1.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+  },
+
+    {
+    id: 1,
+    type: 'image',
+    src: '/images/c78.jpg',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
+  {
+    id: 2,
+    type: 'video',
+    src: '/videos/appartement1.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+  },
+
+    {
+    id: 1,
+    type: 'image',
+    src: '/images/c78.jpg',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
+  {
+    id: 2,
+    type: 'video',
+    src: '/videos/appartement1.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
   },
 
 ];
@@ -136,6 +214,9 @@ const Terrain = () => {
     e.target.reset();
   };
 
+  // 🔗 Lien WhatsApp (tu peux remplacer le numéro par le tien)
+  const whatsappLink = 'https://wa.me/237655479301?text=Bonjour,%20je%20suis%20intéressé%20par%20votre%20bien.';
+
   return (
     <div className="service-container">
       <h2>Nos Services Immobiliers</h2>
@@ -149,6 +230,7 @@ const Terrain = () => {
                 <source src={item.src} type="video/mp4" />
               </video>
             )}
+
             <h3>{item.title}</h3>
             <p><strong>Prix :</strong> {item.price}</p>
             <p>
@@ -166,11 +248,19 @@ const Terrain = () => {
             <ul className="comment-list">
               {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
             </ul>
+
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-button"
+            >
+              Contacter sur WhatsApp
+            </a>
           </div>
         ))}
       </div>
 
-      {/* Modal de détails */}
       {selectedService && (
         <div className="modal-overlay" onClick={() => setSelectedService(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

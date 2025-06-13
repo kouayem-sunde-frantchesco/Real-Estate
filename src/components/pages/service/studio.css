@@ -78,3 +78,21 @@ h2 {
 .like-btn:hover, .comment-btn:hover {
   background-color: #0056b3;
 }
+
+
+
+.whatsapp-button {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E;
+}

@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
 import './appartement.css';
 
+
+
+
+
+
+
+
+
+// Numéro WhatsApp du contact (format international, sans espace ni +)
+const whatsappNumber = '237655479301'; // modifier par ton numéro réel
+const whatsappMessage = encodeURIComponent("Bonjour, je suis intéressé par le bien immobilier que vous proposez.");
+const whatsappLink = `https://wa.me/${237655479301}?text=${'Bonjour Bienvenue a SF immobilier'}`;
+
 const servicesData = [
   {
     id: 1,
     type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Maison moderne',
+    src: '/images/c6.avif',
+    title: 'Chambre moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
@@ -14,8 +27,8 @@ const servicesData = [
   {
     id: 2,
     type: 'video',
-    src: '/videos/appartement1.mp4', // remplace avec ton vrai fichier vidéo
-    title: 'Appartement meublé',
+    src: '/videos/sakamoto.mp4',
+    title: 'Chambre moderne',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
@@ -23,18 +36,17 @@ const servicesData = [
   {
     id: 3,
     type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Studio à louer',
+    src: '/images/c9.jpg',
+    title: 'Chambre Classique',
     price: '150 000 FCFA/mois',
     location: 'Douala, Akwa',
     description: 'Studio moderne avec douche interne.',
   },
-
-    {
+  {
     id: 4,
     type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Maison moderne',
+    src: '/images/c6.avif',
+    title: 'Chambre moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
@@ -42,8 +54,8 @@ const servicesData = [
   {
     id: 5,
     type: 'video',
-    src: '/videos/appartement1.mp4', // remplace avec ton vrai fichier vidéo
-    title: 'Appartement meublé',
+    src: '/videos/sakamoto.mp4',
+    title: 'Chambre moderne',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
@@ -51,18 +63,17 @@ const servicesData = [
   {
     id: 6,
     type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Studio à louer',
+    src: '/images/c45.avif',
+    title: 'Chambre Classique',
     price: '150 000 FCFA/mois',
     location: 'Douala, Akwa',
     description: 'Studio moderne avec douche interne.',
   },
-
-    {
+  {
     id: 7,
     type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Maison moderne',
+    src: '/images/c5.avif',
+    title: 'Chambre moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
@@ -70,8 +81,8 @@ const servicesData = [
   {
     id: 8,
     type: 'video',
-    src: '/videos/appartement1.mp4', // remplace avec ton vrai fichier vidéo
-    title: 'Appartement meublé',
+    src: '/videos/sakamoto.mp4',
+    title: 'Chambre moderne',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
@@ -79,18 +90,17 @@ const servicesData = [
   {
     id: 9,
     type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Studio à louer',
+    src: '/images/c10.avif',
+    title: 'Chambre Classique',
     price: '150 000 FCFA/mois',
     location: 'Douala, Akwa',
     description: 'Studio moderne avec douche interne.',
   },
-
-    {
+  {
     id: 10,
     type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Maison moderne',
+    src: '/images/c3.avif',
+    title: 'Chambre moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
@@ -98,8 +108,8 @@ const servicesData = [
   {
     id: 11,
     type: 'video',
-    src: '/videos/appartement1.mp4', // remplace avec ton vrai fichier vidéo
-    title: 'Appartement meublé',
+    src: '/videos/sakamoto.mp4',
+    title: 'Chambre Classique',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
@@ -107,8 +117,8 @@ const servicesData = [
   {
     id: 12,
     type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Studio à louer',
+    src: '/images/c1.avif',
+    title: 'Chambre Classique',
     price: '150 000 FCFA/mois',
     location: 'Douala, Akwa',
     description: 'Studio moderne avec douche interne.',
@@ -166,6 +176,17 @@ const Appartement = () => {
             <ul className="comment-list">
               {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
             </ul>
+
+            {/* 🔗 Lien vers WhatsApp */}
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-button"
+            >
+              Contacter sur WhatsApp
+            </a>
+
           </div>
         ))}
       </div>

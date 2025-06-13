@@ -14,7 +14,7 @@ const servicesData = [
   {
     id: 2,
     type: 'video',
-    src: '../video/sakamoto.mp4', // remplace avec ton vrai fichier vidéo
+    src: '/videos/sakamoto.mp4',
     title: 'Chambre moderne',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -29,8 +29,7 @@ const servicesData = [
     location: 'Douala, Akwa',
     description: 'Studio moderne avec douche interne.',
   },
-
-    {
+  {
     id: 4,
     type: 'image',
     src: '/images/c6.avif',
@@ -42,7 +41,7 @@ const servicesData = [
   {
     id: 5,
     type: 'video',
-    src: '../video/sakamoto.mp4', // remplace avec ton vrai fichier vidéo
+    src: '/videos/sakamoto.mp4',
     title: 'Chambre moderne',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -57,8 +56,7 @@ const servicesData = [
     location: 'Douala, Akwa',
     description: 'Studio moderne avec douche interne.',
   },
-
-    {
+  {
     id: 7,
     type: 'image',
     src: '/images/c5.avif',
@@ -70,7 +68,7 @@ const servicesData = [
   {
     id: 8,
     type: 'video',
-    src: '../videos/sakamoto.mp4', // remplace avec ton vrai fichier vidéo
+    src: '/videos/sakamoto.mp4',
     title: 'Chambre moderne',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -85,8 +83,7 @@ const servicesData = [
     location: 'Douala, Akwa',
     description: 'Studio moderne avec douche interne.',
   },
-
-    {
+  {
     id: 10,
     type: 'image',
     src: '/images/c3.avif',
@@ -98,7 +95,7 @@ const servicesData = [
   {
     id: 11,
     type: 'video',
-    src: '../video/sakamoto.mp4', // remplace avec ton vrai fichier vidéo
+    src: '/videos/sakamoto.mp4',
     title: 'Chambre Classique',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -113,7 +110,6 @@ const servicesData = [
     location: 'Douala, Akwa',
     description: 'Studio moderne avec douche interne.',
   },
-
 ];
 
 const Chambre = () => {
@@ -121,13 +117,15 @@ const Chambre = () => {
   const [comments, setComments] = useState({});
   const [selectedService, setSelectedService] = useState(null);
 
+  const whatsappLink = 'https://wa.me/237655479301?text=Bonjour, je suis intéressé par votre chambre.'; // 🔁 Change ce numéro
+
   const handleLike = (id) => {
     setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
   };
 
   const handleComment = (id, e) => {
     e.preventDefault();
-    const commentText = e.target.elements.comment.value;
+    const commentText = e.target.elements.comment.value.trim();
     if (!commentText) return;
     setComments((prev) => ({
       ...prev,
@@ -138,7 +136,7 @@ const Chambre = () => {
 
   return (
     <div className="service-container">
-      <h2>Nos Services Immobiliers</h2>
+      <h2>Nos Chambres Disponibles</h2>
       <div className="card-grid">
         {servicesData.map((item) => (
           <div key={item.id} className="service-card">
@@ -166,11 +164,19 @@ const Chambre = () => {
             <ul className="comment-list">
               {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
             </ul>
+
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-button"
+            >
+              Contacter sur WhatsApp
+            </a>
           </div>
         ))}
       </div>
 
-      {/* Modal de détails */}
       {selectedService && (
         <div className="modal-overlay" onClick={() => setSelectedService(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
