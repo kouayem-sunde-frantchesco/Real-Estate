@@ -14,6 +14,7 @@ import Chambre from './components/pages/service/chambre';
 import Maison from './components/pages/service/maison';
 import Studio from './components/pages/service/studio';
 import Terrain from './components/pages/service/terrain';
+import ScrollToTop from './components/ScrollToTop.js';
 // import Alerte from './components/pages/notification';
 
 import Footer from './components/pages/footer';
@@ -23,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-
+        <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

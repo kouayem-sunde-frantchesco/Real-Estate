@@ -37,14 +37,14 @@
 
 /* Lien stylisé */
 .App-link {
-  color: #61dafb;
+  color: #08a5d1;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .App-link:hover {
-  color: #21a1f1;
+  color: #064e7b;
 }
 
 /* Animation du logo */

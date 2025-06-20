@@ -14,7 +14,7 @@ const Footer = () => {
 
         {/* Description */}
         <div className="footer-column description">
-          <h3>🌍 Luxis Home Camer</h3>
+        <h3>LUXIS HOME CAMER</h3>
           <p>
             Luxis Home Camer est une plateforme de petites annonces au Cameroun.
             Une solution simple pour les particuliers, les agences et les investisseurs
@@ -30,9 +30,8 @@ const Footer = () => {
           <h4>À propos de nous</h4>
           <ul>
             <li><Link to="/about">Qui sommes-nous ?</Link></li>
-            <li><Link to="/rules">Règles d’annonces</Link></li>
-            <li><Link to="/register">Créer un compte</Link></li>
-            <li><Link to="/blog">Blog</Link></li>
+            <li><Link to="/signin">Créer un compte</Link></li>
+            <li><Link to={`/service?category`}>Blog</Link></li>
           </ul>
         </div>
 
@@ -40,24 +39,12 @@ const Footer = () => {
         <div className="footer-column">
           <h4>Je cherche</h4>
           <ul>
-            <li><Link to="/search/cars">Voitures</Link></li>
-            <li><Link to="/search/housing">Logements meublés</Link></li>
-            <li><Link to="/search/apartments">Appartements</Link></li>
-            <li><Link to="/search/clothing">Vêtements</Link></li>
-            <li><Link to="/search/phones">Téléphones</Link></li>
-            <li><Link to="/search/appliances">Électroménager</Link></li>
-            <li><Link to="/search/electronics">Électroniques</Link></li>
-            <li><Link to="/search/services">Services</Link></li>
-          </ul>
-        </div>
-
-        {/* Voitures à vendre */}
-        <div className="footer-column">
-          <h4>Voitures à vendre</h4>
-          <ul>
-            {["Toyota", "Suzuki", "Hyundai", "Mercedes", "BMW", "Honda", "Peugeot", "Kia", "Nissan", "Tesla", "Jetour"].map((brand) => (
-              <li key={brand}><Link to={`/cars/${brand.toLowerCase()}`}>{brand}</Link></li>
-            ))}
+            <li><Link to="../service/maison">Maison</Link></li>
+            <li><Link to="../service/appartement">Appartements</Link></li>
+            <li><Link to="../service/studio">Studios</Link></li>
+            <li><Link to="../service/chambre">Chambres</Link></li>
+            <li><Link to="../service/terrain">Terrain</Link></li>
+            <li><Link to="../pages/services">Services</Link></li>
           </ul>
         </div>
 

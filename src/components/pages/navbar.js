@@ -33,13 +33,12 @@ const toggleDarkMode = () => setDarkMode((prev) => !prev);
   return (
     <nav>
       <div className="nav-container">
-        <Link to="/" className="nav-logo"><img src="./images/luxis home camer.jpg"/></Link>
-
+       <div className=''> <Link to="/" className="nav-logo"><img src="./images/luxis home camer.png"/></Link> </div>
+        
         <div className="nav-links">
           <Link to="/" className="nav-link">{t('home')}</Link>
           <Link to="/about" className="nav-link">{t('about')}</Link>
           
-
           <div
             className="nav-link dropdown"
             onMouseEnter={() => setDropdownOpen(true)}
@@ -67,7 +66,7 @@ const toggleDarkMode = () => setDarkMode((prev) => !prev);
             <span>{t('language')} ({i18n.language.toUpperCase()})</span>
           </button>
 
-          <div className="search-bar">
+          {/* <div className="search-bar">
             <input
               type="text"
               placeholder={t('search')}
@@ -75,17 +74,13 @@ const toggleDarkMode = () => setDarkMode((prev) => !prev);
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button><FaSearch /></button>
-          </div>
+          </div> */}
         </div>
 
         <button className="menu-toggle" onClick={toggleMenu}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-          {/* Menu hamburger */}
-        <div className="hamburger" onClick={onHamburgerClick}>
-          &#9776; {/* ≡ symbole hamburger */}
-        </div>
       </div>
 
       {menuOpen && (
@@ -122,9 +117,9 @@ const toggleDarkMode = () => setDarkMode((prev) => !prev);
           </div>
 
             {/* changer le mode */}
-          <button className="theme-toggle" onClick={toggleDarkMode}>
+          {/* <button className="theme-toggle" onClick={toggleDarkMode}>
             {isDarkMode ? '🌞' : '🌙'}
-          </button>
+          </button> */}
 
         </div>
       )}
