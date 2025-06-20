@@ -1,63 +1,102 @@
-.contact-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.contact-container h1 {
-  text-align: center;
-  margin-bottom: 10px;
-  color: #2c3e50;
-}
-
-.contact-form {
-  margin-top: 30px;
+.contact-page {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-wrap: wrap;
+  padding: 2rem;
+  gap: 2rem;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
 }
 
-.contact-form h2 {
-  color: #34495e;
-  margin-bottom: 10px;
+.contact-info,
+.contact-form {
+  flex: 1 1 300px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-.contact-form label {
-  font-weight: bold;
+h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+img{
+width: 100px;
+height: 100px;
+
+}
+
+
+.contact-info p,
+.contact-info a {
+  margin: 0.5rem 0;
   color: #555;
+  text-decoration: none;
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  font-size: 1rem;
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #007bff;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 10px 14px;
+  border: 1.5px solid #ccc;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s ease;
 }
 
-.contact-form button {
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.input-error {
+  border-color: #e74c3c;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: -0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
   padding: 12px;
-  font-size: 1rem;
-  background-color: #2c3e50;
-  color: #fff;
   border: none;
   border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-.contact-form button:hover {
-  background-color: #1a252f;
+button:hover {
+  background-color: #0056b3;
 }
 
-@media (max-width: 600px) {
-  .contact-container {
-    padding: 15px;
-  }
+.success-msg {
+  color: green;
+  font-weight: 500;
+  margin-top: 1rem;
+}
 
-  .contact-form {
-    gap: 12px;
+.map {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    flex-direction: column;
   }
 }

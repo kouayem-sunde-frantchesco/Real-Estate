@@ -14,7 +14,7 @@ nav {
   left: 0;
   right: 0;
   z-index: 1000;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /* Conteneur principal */
@@ -32,10 +32,12 @@ nav {
 
 /* Logo */
 .nav-logo {
-  font-size: 1.5rem;
+  /* font-size: 1.5rem;
   font-weight: bold;
   color: #2563eb; /* bleu */
-  text-decoration: none;
+  /* text-decoration: none; */
+  /* width: 20px; */
+  height: 2px;
 }
 
 /* Liens de navigation */

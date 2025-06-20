@@ -1,77 +1,104 @@
-// Achetr, louer, vendre, 
-
 import React, { useState } from 'react';
-import './service.css';
+import { motion } from 'framer-motion';
+import { FaHeart } from 'react-icons/fa';
+import '../pages/service.css';
 
-const servicesData = [
+const serviceData = [
   {
     id: 1,
-    type: 'image',
-    src: '/images/c78.jpg',
-    title: 'Maison moderne',
-    price: '75 000 000 FCFA',
-    location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    title: 'Visite virtuelle 360°',
+    category: 'Digital',
+    description: 'Explorez les biens à distance grâce à une visite immersive.',
+    image: '/images/c78.jpg',
   },
   {
     id: 2,
-    type: 'video',
-    src: '/videos/apartment.mp4',
-    title: 'Appartement meublé',
-    price: '350 000 FCFA/mois',
-    location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
+    title: 'Service juridique',
+    category: 'Assistance',
+    description: 'Bénéficiez d’un accompagnement pour vos contrats et litiges.',
+    image: '/images/c78.jpg',
+  },
+  {
+    id: 3,
+    title: 'Gestion locative',
+    category: 'Gestion',
+    description: 'Confiez-nous vos biens et laissez-nous gérer vos locataires.',
+    image: '/images/c78.jpg',
   },
 ];
 
 const Service = () => {
-  const [likes, setLikes] = useState({});
-  const [comments, setComments] = useState({});
+  const [filter, setFilter] = useState('Tous');
+  const [likes, setLikes] = useState(Array(serviceData.length).fill(0));
+  const [comments, setComments] = useState(Array(serviceData.length).fill([]));
 
-  const handleLike = (id) => {
-    setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  const handleLike = (index) => {
+    const newLikes = [...likes];
+    newLikes[index]++;
+    setLikes(newLikes);
   };
 
-  const handleComment = (id, e) => {
+  const handleComment = (index, e) => {
     e.preventDefault();
-    const commentText = e.target.elements.comment.value;
-    if (!commentText) return;
-    setComments((prev) => ({
-      ...prev,
-      [id]: [...(prev[id] || []), commentText],
-    }));
-    e.target.reset();
+    const comment = e.target.elements.comment.value;
+    if (comment.trim()) {
+      const newComments = [...comments];
+      newComments[index].push(comment);
+      setComments(newComments);
+      e.target.reset();
+    }
   };
+
+  const filteredServices =
+    filter === 'Tous'
+      ? serviceData
+      : serviceData.filter((item) => item.category === filter);
 
   return (
     <div className="service-container">
-      <h2>Nos Services Immobiliers</h2>
+      <h2>Nos Services</h2>
+
+      <div className="filter-buttons">
+        {['Tous', 'Digital', 'Assistance', 'Gestion'].map((cat) => (
+          <button
+            key={cat}
+            className={filter === cat ? 'active' : ''}
+            onClick={() => setFilter(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
       <div className="card-grid">
-        {servicesData.map(({ id, type, src, title, price, location, description }) => (
-          <div key={id} className="service-card">
-            {type === 'image' ? (
-              <img src={src} alt={title} />
-            ) : (
-              <video controls>
-                <source src={src} type="video/mp4" />
-              </video>
-            )}
-            <h3>{title}</h3>
-            <p><strong>Prix :</strong> {price}</p>
-            <p><strong>Lieu :</strong> {location}</p>
-            <p>{description}</p>
+        {filteredServices.map((service, index) => (
+          <motion.div
+            className="service-card"
+            key={service.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.4 }}
+          >
+            <img src={service.image} alt={service.title} />
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <button onClick={() => handleLike(index)}>
+              <FaHeart style={{ marginRight: '5px' }} />
+              J’aime {likes[index]}
+            </button>
 
-            <button onClick={() => handleLike(id)}>👍 {likes[id] || 0}</button>
-
-            <form onSubmit={(e) => handleComment(id, e)}>
-              <input type="text" name="comment" placeholder="Laissez un commentaire" />
+            <form onSubmit={(e) => handleComment(index, e)}>
+              <input type="text" name="comment" placeholder="Votre commentaire..." />
               <button type="submit">Envoyer</button>
             </form>
 
             <ul className="comment-list">
-              {(comments[id] || []).map((c, i) => <li key={i}>{c}</li>)}
+              {comments[index].map((com, i) => (
+                <li key={i}>{com}</li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

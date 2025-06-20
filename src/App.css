@@ -1,11 +1,17 @@
+/* Style global de l'application */
 .App {
   text-align: center;
-    margin-top: 50px;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+  box-sizing: border-box;
 }
 
+/* Logo avec animation */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  max-width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,23 +20,34 @@
   }
 }
 
+/* En-tête principal de l'application */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: clamp(1.2rem, 2.5vw, 2rem); /* Responsive typography */
   color: white;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
 }
 
+/* Lien stylisé */
 .App-link {
   color: #61dafb;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
+.App-link:hover {
+  color: #21a1f1;
+}
+
+/* Animation du logo */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -38,4 +55,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Responsive layout pour petits écrans */
+@media (max-width: 768px) {
+  .App-header {
+    padding: 20px 10px;
+  }
+
+  .App {
+    padding: 10px;
+  }
+}
+
+
+body.dark {
+  background-color: #121212;
+  color: #e2e2e2;
+}
+
+body.dark a {
+  color: #90cdf4;
 }

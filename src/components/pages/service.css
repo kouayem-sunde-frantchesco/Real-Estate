@@ -1,34 +1,44 @@
+/* ===== CONTAINER PRINCIPAL ===== */
 .service-container {
   padding: 20px;
   max-width: 1200px;
   margin: auto;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .service-container h2 {
   text-align: center;
   margin-bottom: 30px;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  color: #333;
 }
 
+/* ===== GRILLE RESPONSIVE ===== */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
+/* ===== CARTE SERVICE ===== */
 .service-card {
   border: 1px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
   padding: 15px;
   background-color: #fff;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .service-card:hover {
   transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== MÉDIA : IMAGE OU VIDÉO ===== */
 .service-card img,
 .service-card video {
   width: 100%;
@@ -38,14 +48,20 @@
   max-height: 200px;
 }
 
+/* ===== TITRES ET PARAGRAPHES ===== */
 .service-card h3 {
   margin: 10px 0 5px;
+  color: #007BFF;
+  font-size: 1.2rem;
 }
 
 .service-card p {
   margin: 5px 0;
+  color: #555;
+  font-size: 0.95rem;
 }
 
+/* ===== BOUTON "LIKE", "EN SAVOIR PLUS", ETC. ===== */
 .service-card button {
   background-color: #007BFF;
   color: #fff;
@@ -54,23 +70,86 @@
   border-radius: 5px;
   margin-top: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.service-card button:hover {
+  background-color: #0056b3;
+}
+
+/* ===== FORMULAIRE DE COMMENTAIRE ===== */
 .service-card form {
-  margin-top: 10px;
+  margin-top: 12px;
   display: flex;
   gap: 5px;
+  align-items: center;
 }
 
 .service-card input[type="text"] {
   flex: 1;
-  padding: 6px;
+  padding: 6px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 0.95rem;
 }
 
+/* ===== LISTE DES COMMENTAIRES ===== */
 .comment-list {
   margin-top: 10px;
   list-style: disc inside;
   font-size: 14px;
+  color: #333;
+}
+
+.comment-list li {
+  margin-bottom: 6px;
+  padding-left: 10px;
+}
+
+
+
+/* Boutons de filtre */
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  margin: 5px;
+  padding: 8px 14px;
+  background-color: #e2e8f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover {
+  background-color: #007BFF;
+  color: white;
+}
+
+/* Dark mode */
+body.dark .service-container {
+  background-color: #1e1e1e;
+  color: #e2e2e2;
+}
+
+body.dark .service-card {
+  background-color: #2b2b2b;
+  border-color: #444;
+}
+
+body.dark .service-card button {
+  background-color: #444;
+}
+
+body.dark .filter-buttons button {
+  background-color: #444;
+  color: white;
+}
+
+body.dark .filter-buttons button.active {
+  background-color: #007BFF;
 }

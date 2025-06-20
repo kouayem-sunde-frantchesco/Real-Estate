@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
-// import m8 from '../components/m8.avif';
+import body from '../m10.avif';
+
+  // import m8 from '../components/m8.avif';
 
 const categories1 = [
   { name: 'Maisons', image: '/images/m1.avif' },
@@ -37,14 +39,33 @@ const categories4 = [
 
 
 const Home = () => {
+
+  const sectionStyleHead = {
+  backgroundImage: `url(${body})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  padding: '100px 0',
+};
+
   return (
     <div className="home-container">
 
-<div className=''>
-  <section className='img'>
-    <img src='./images/image7.jpg'></img>
-  </section>
-</div>
+  {/* section image */}
+    <section className="head"  style={sectionStyleHead}   >
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-xl-7 col-lg-9 col-md-12">
+                <div class="fpc-capstion text-center my-4">
+                  <div class="fpc-captions">
+                    <h1 class="title-head">Bienvenue chez <strong>Luxis Home Camer</strong></h1>
+                    <p class="text-light">    Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.
+    Nous sélectionnons rigoureusement les meilleures offres pour répondre aux attentes des particuliers, agences et investisseurs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
 
       <header
         className="banner"

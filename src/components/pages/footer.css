@@ -1,28 +1,13 @@
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer-column {
-    width: 100%;
-  }
-
-  .social-icons {
-    margin-top: 10px;
-  }
-}
-
-
-/* Structure de base */
+/* ===== FOOTER GLOBAL ===== */
 .footer {
   margin-top: 50px;
   background-color: #1e293b;
   color: white;
   padding: 40px 20px 20px;
-  font-family: Georgia, 'Times New Roman', Times, serif;}
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
+/* ===== CONTAINER ===== */
 .footer-container {
   display: flex;
   justify-content: space-between;
@@ -30,8 +15,10 @@
   max-width: 1200px;
   margin: auto;
   gap: 20px;
+  box-sizing: border-box;
 }
 
+/* ===== COLONNES ===== */
 .footer-column {
   flex: 1 1 200px;
   min-width: 200px;
@@ -41,6 +28,7 @@
 .footer-column h4 {
   margin-bottom: 15px;
   color: #facc15;
+  font-size: 1.2rem;
 }
 
 .footer-column p,
@@ -49,6 +37,7 @@
   margin: 0;
   padding: 5px 0;
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .footer-column ul {
@@ -59,14 +48,18 @@
 .footer-column ul li a {
   color: #e2e8f0;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .footer-column ul li a:hover {
   color: #facc15;
 }
 
-/* Icônes réseaux sociaux */
+/* ===== SOCIAL MEDIA ===== */
+.social-icons {
+  margin-top: 15px;
+}
+
 .social-icons a {
   color: #e2e8f0;
   margin-right: 10px;
@@ -78,7 +71,7 @@
   color: #facc15;
 }
 
-/* Bas de page */
+/* ===== BOTTOM LINE ===== */
 .footer-bottom {
   text-align: center;
   margin-top: 30px;
@@ -88,7 +81,7 @@
   color: #cbd5e1;
 }
 
-
+/* ===== SCROLL TO TOP BUTTON ===== */
 .scroll-to-top {
   position: fixed;
   bottom: 25px;
@@ -102,7 +95,7 @@
   font-size: 24px;
   cursor: pointer;
   z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: background 0.3s;
 }
 
@@ -110,10 +103,34 @@
   background-color: #0056b3;
 }
 
-
+/* ===== PLAYSTORE IMAGE ===== */
 .playstore-logo {
   width: 100px;
-  height: 60px;
+  height: auto;
   border-radius: 5px;
   margin-top: 15px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-column {
+    width: 100%;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
 }

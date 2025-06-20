@@ -14,9 +14,9 @@ const Footer = () => {
 
         {/* Description */}
         <div className="footer-column description">
-          <h3>🌍 F & S IMMOBILIER</h3>
+          <h3>🌍 Luxis Home Camer</h3>
           <p>
-            F & S IMMOBILIER est une plateforme de petites annonces au Cameroun.
+            Luxis Home Camer est une plateforme de petites annonces au Cameroun.
             Une solution simple pour les particuliers, les agences et les investisseurs
             qui cherchent à acheter, louer ou vendre des biens immobiliers.
           </p>
@@ -82,7 +82,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {currentYear} F & S IMMOBILIER. Tous droits réservés.</p>
+        <p>&copy; {currentYear} Luxis Home Camer. Tous droits réservés.</p>
       </div>
 
       <button className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>

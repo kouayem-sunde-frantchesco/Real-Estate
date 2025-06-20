@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaSearch, FaGlobe } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
@@ -18,10 +19,21 @@ const Navbar = ({ onHamburgerClick }) => {
     i18n.changeLanguage(newLang);
   };
 
+const [isDarkMode, setDarkMode] = useState(() => {
+  return localStorage.getItem('theme') === 'dark';
+});
+
+useEffect(() => {
+  document.body.classList.toggle('dark', isDarkMode);
+  localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+}, [isDarkMode]);
+
+const toggleDarkMode = () => setDarkMode((prev) => !prev);
+
   return (
     <nav>
       <div className="nav-container">
-        <Link to="/" className="nav-logo">RealEstate</Link>
+        <Link to="/" className="nav-logo"><img src="./images/luxis home camer.jpg"/></Link>
 
         <div className="nav-links">
           <Link to="/" className="nav-link">{t('home')}</Link>
@@ -48,7 +60,7 @@ const Navbar = ({ onHamburgerClick }) => {
 
           <Link to="/contact" className="nav-link">{t('contact')}</Link>
           <Link to="/login" className="nav-link">{t('login')}</Link>
-          <Link to="/notification" className="nav-link">{t('notification')}</Link>
+          {/* <Link to="/notification" className="nav-link">{t('notification')}</Link> */}
 
           <button onClick={toggleLanguage} className="language-switch">
             <FaGlobe />
@@ -92,7 +104,7 @@ const Navbar = ({ onHamburgerClick }) => {
           </details>
           <Link to="/contact" className="nav-link">{t('contact')}</Link>
           <Link to="/login" className="nav-link">{t('login')}</Link>
-          <Link to="/notification" className="nav-link">{t('notification')}</Link>
+          {/* <Link to="/notification" className="nav-link">{t('notification')}</Link> */}
 
           <button onClick={toggleLanguage} className="language-switch">
             <FaGlobe />
@@ -108,6 +120,12 @@ const Navbar = ({ onHamburgerClick }) => {
             />
             <button><FaSearch /></button>
           </div>
+
+            {/* changer le mode */}
+          <button className="theme-toggle" onClick={toggleDarkMode}>
+            {isDarkMode ? '🌞' : '🌙'}
+          </button>
+
         </div>
       )}
     </nav>

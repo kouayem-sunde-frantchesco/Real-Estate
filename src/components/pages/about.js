@@ -1,28 +1,56 @@
 import React from 'react';
 import '../pages/about.css';
+import head from '../m10.avif';
+  
 
 const About = () => {
+
+ 
+  const sectionStyleBackground = {
+  backgroundImage: `url(${head})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  padding: '100px 0',
+};
+
   return (
 
 <div className='container'>
+
+  {/* section image */}
+    <section className="head"  style={sectionStyleBackground}  >
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-xl-7 col-lg-9 col-md-12">
+                <div class="fpc-capstion text-center my-4">
+                  <div class="fpc-captions">
+                    <h1 class="title-head">Bienvenue chez <strong>Luxis Home Camer</strong></h1>
+                    <p class="text-light">    Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.
+    Nous sélectionnons rigoureusement les meilleures offres pour répondre aux attentes des particuliers, agences et investisseurs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
 
    <section class="about-container">
 
   <section className='header'>
 
-      <h2>Bienvenue chez <strong>F & S IMMOBILIER</strong></h2>
+      <h2>Bienvenue chez <strong>Luxis Home Camer</strong></h2>
   <p>
-    F & S IMMOBILIER est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.
+    Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.
     Nous sélectionnons rigoureusement les meilleures offres pour répondre aux attentes des particuliers, agences et investisseurs.
   </p>
 
   <h3><strong>Notre Mission</strong></h3>
   <p>
-    Chez F & S IMMOBILIER, notre mission est de rendre l'immobilier plus simple, plus rapide et plus accessible. Nous vous
+    Chez Luxis Home Camer, notre mission est de rendre l'immobilier plus simple, plus rapide et plus accessible. Nous vous
     offrons une expérience transparente et sécurisée, que vous soyez à la recherche d’un logement ou que vous souhaitiez vendre.
   </p>
 
-  <h3><strong>Pourquoi choisir F & S IMMOBILIER ?</strong></h3>
+  <h3><strong>Pourquoi choisir Luxis Home Camer ?</strong></h3>
   <ul>
     <li>✅<img src='./images/avif' className='img-choix'/> <strong>Large choix de biens :</strong> appartements, maisons, bureaux, terrains, logements meublés, etc.</li>
     <li>✅<img src='./images/cadeau2.avif'className='img-news'/> <strong>Offres actualisées :</strong> annonces vérifiées et régulièrement mises à jour.</li>
@@ -62,3 +90,4 @@ const About = () => {
 };
 
 export default About;
+
