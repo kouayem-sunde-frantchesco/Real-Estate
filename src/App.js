@@ -2,14 +2,14 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/pages/navbar';
-import Navbar2 from './components/pages/navbar2';
+// import Navbar2 from './components/pages/navbar2';
 import Home from './components/pages/home';
 import About from './components/pages/about';
 import Contact from './components/pages/contact'; 
 import Categorie from './components/pages/categories';
-import Login from './components/pages/login';
-import ForgotPassword from './components/pages/forgotpassword';
-import Signin from './components/pages/signin';
+// import Login from './components/pages/login';
+// import ForgotPassword from './components/pages/forgotpassword';
+// import Signin from './components/pages/signin';
 import Appartement from './components/pages/service/appartement';
 import Chambre from './components/pages/service/chambre';
 import Maison from './components/pages/service/maison';
@@ -33,9 +33,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/categories" element={<Categorie />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} /> */}
         <Route path="/vehicule/vehicule"element={<Vehicule/>} />
         {/* <Route path='/notification' element={<Alerte />} /> */}
 
