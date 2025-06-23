@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import '../pages/navbar.css';
 
 
-
 const Navbar = ({ onHamburgerClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -31,9 +30,10 @@ useEffect(() => {
 const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
   return (
-    <nav>
+<>
+     {/* <nav> */}
       <div className="nav-container">
-       <div className=''> <Link to="/" className="nav-logo"><img src="./images/luxis home camer.png"/></Link> </div>
+       <div className=''> <Link to="/" className="nav-logo"><img src="../images/luxis home camer.png"/></Link> </div>
         
         <div className="nav-links">
           <Link to="/" className="nav-link">{t('home')}</Link>
@@ -45,7 +45,7 @@ const toggleDarkMode = () => setDarkMode((prev) => !prev);
             onMouseLeave={() => setDropdownOpen(false)}
           >
 
-            {t('services')}
+            {t('Categories')}
             {dropdownOpen && (
               <div className="dropdown-menu">
                 <Link to="/service/maison" className="dropdown-item">Maison</Link>
@@ -88,7 +88,7 @@ const toggleDarkMode = () => setDarkMode((prev) => !prev);
           <Link to="/" className="nav-link">{t('home')}</Link>
           <Link to="/pages/about" className="nav-link">{t('about')}</Link>
           <details className="mobile-dropdown">
-            <summary>{t('services')}</summary>
+            <summary>{t('Categories')}</summary>
             <div>
               <Link to="/services/maison" className="dropdown-item">Maison</Link>
               <Link to="/services/chambre" className="dropdown-item">Chambre</Link>
@@ -106,7 +106,7 @@ const toggleDarkMode = () => setDarkMode((prev) => !prev);
             <span>{t('language')} ({i18n.language.toUpperCase()})</span>
           </button>
 
-          <div className="search-bar">
+          {/* <div className="search-bar">
             <input
               type="text"
               placeholder={t('search')}
@@ -114,7 +114,7 @@ const toggleDarkMode = () => setDarkMode((prev) => !prev);
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button><FaSearch /></button>
-          </div>
+          </div> */}
 
             {/* changer le mode */}
           {/* <button className="theme-toggle" onClick={toggleDarkMode}>
@@ -123,7 +123,8 @@ const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
         </div>
       )}
-    </nav>
+  </>
+    // </nav>
   );
 };
 

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/pages/navbar';
+import Navbar2 from './components/pages/navbar2';
 import Home from './components/pages/home';
 import About from './components/pages/about';
 import Contact from './components/pages/contact'; 
-import Service from './components/pages/services';
+import Categorie from './components/pages/categories';
 import Login from './components/pages/login';
 import ForgotPassword from './components/pages/forgotpassword';
 import Signin from './components/pages/signin';
@@ -14,6 +15,7 @@ import Chambre from './components/pages/service/chambre';
 import Maison from './components/pages/service/maison';
 import Studio from './components/pages/service/studio';
 import Terrain from './components/pages/service/terrain';
+import Vehicule from "./components/pages/vehicule/vehicule";
 import ScrollToTop from './components/ScrollToTop.js';
 // import Alerte from './components/pages/notification';
 
@@ -24,15 +26,17 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      {/* <Navbar2 /> */}
         <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/service" element={<Service />} />
+        <Route path="/categories" element={<Categorie />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/vehicule/vehicule"element={<Vehicule/>} />
         {/* <Route path='/notification' element={<Alerte />} /> */}
 
 {/* pages service */}

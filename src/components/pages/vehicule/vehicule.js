@@ -1,203 +1,239 @@
 import React, { useState } from 'react';
-import './appartement.css';
+import './vehicule.css';
 import { motion } from 'framer-motion';
-import { FaHeart } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';  
 import head from '../m13.avif';
-  
+
+
+// Numéro WhatsApp du contact (format international, sans espace ni +)
+const whatsappNumber = '237655479301'; // modifier par ton numéro réel
+const whatsappMessage = encodeURIComponent("Bonjour, je suis intéressé par le bien immobilier que vous proposez.");
+const whatsappLink = `https://wa.me/${237655479301}?text=${'Bonjour Bienvenue a SF immobilier'}`;
+
 const servicesData = [
   {
     id: 1,
     type: 'image',
-    src: '/images/image1.jpg',
-    title: 'Maison moderne',
+    src: '/images/car5.avif',
+    title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A vendre"
   },
   {
     id: 2,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
+    title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    statut: "A vendre"
   },
 
     {
     id: 3,
     type: 'image',
-    src: '/images/image7.jpg',
-    title: 'Maison moderne',
+    src: '/images/car3.avif',
+    title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A louer"
   },
   {
     id: 4,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
+    title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    statut: "A vendre"
   },
 
     {
     id: 5,
     type: 'image',
-    src: '/images/hall6.avif',
-    title: 'Maison moderne',
+    src: '/images/car6.jpg',
+    title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A vendre"
   },
   {
     id: 6,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
+    title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    statut: "A vendre"
   },
 
     {
     id: 7,
     type: 'image',
-    src: '/images/hall5.avif',
-    title: 'Maison moderne',
+    src: '/images/car4.avif',
+    title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A louer"
   },
   {
     id: 8,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
+    title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    statut: "A vendre"
   },
 
     {
     id: 9,
     type: 'image',
-    src: '/images/hall.avif',
-    title: 'Maison moderne',
+    src: '/images/car3.avif',
+    title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A louer"
   },
   {
     id: 10,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
+    title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    statut: "A louer"
   },
 
     {
     id: 11,
     type: 'image',
-    src: '/images/h5.avif',
-    title: 'Maison moderne',
+    src: '/images/car5.avif',
+    title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A vendre"
   },
   {
     id: 12,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
+    title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    statut: "A louer"
   },
 
     {
     id: 13,
     type: 'image',
-    src: '/images/h3.avif',
-    title: 'Maison moderne',
+    src: '/images/car6.jpg',
+    title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A louer"
   },
   {
     id: 14,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
+    title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    statut: "A vendre"
   },
 
     {
     id: 15,
     type: 'image',
-    src: '/images/h4.avif',
-    title: 'Maison moderne',
+    src: '/images/car6.jpg',
+    title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A vendre"
   },
   {
     id: 16,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
+    title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    statut: "A louer"
   },
 
     {
     id: 17,
     type: 'image',
-    src: '/images/h2.avif',
-    title: 'Maison moderne',
+    src: '/images/car4.avif',
+    title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A louer"
   },
   {
     id: 18,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
+    title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    statut: "A louer"
   },
 
     {
     id: 19,
     type: 'image',
-    src: '/images/h1.avif',
-    title: 'Maison moderne',
+    src: '/images/car3.avif',
+    title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A Vendre"
   },
   {
     id: 20,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
+    title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    statut: "A louer"
+  },
+    {
+    id: 21,
+    type: 'image',
+    src: '/images/car3.avif',
+    title: 'Mitsubishi Pajero ',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    statut: "A Vendre"
   },
 
 ];
 
-const Terrain = () => {
+const Vehicule = () => {
 
   const sectionStyleHead = {
   backgroundImage: `url(${head})`,
@@ -205,6 +241,7 @@ const Terrain = () => {
   backgroundPosition: 'center',
   padding: '100px 0',
 };
+ 
 
   const [likes, setLikes] = useState({});
   const [comments, setComments] = useState({});
@@ -225,12 +262,8 @@ const Terrain = () => {
     e.target.reset();
   };
 
-  // 🔗 Lien WhatsApp (tu peux remplacer le numéro par le tien)
-  const whatsappLink = 'https://wa.me/237655479301?text=Bonjour,%20je%20suis%20intéressé%20par%20votre%20bien.';
-
   return (
 <>
-
   {/* section image */}
     <section className="head"  style={sectionStyleHead}  >
           <div class="container">
@@ -239,7 +272,7 @@ const Terrain = () => {
                 <div class="fpc-capstion text-center my-4">
                   <div class="fpc-captions">
                     <h1 class="title-head">Bienvenue chez <strong>Luxis Home Camer</strong></h1>
-                    <p class="text-light">  Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.</p>
+                    <p class="text-light">Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.</p>
                   </div>
                 </div>
               </div>
@@ -249,8 +282,8 @@ const Terrain = () => {
 
     <div className="service-container">
 
-      <h2>Nos Services Immobiliers</h2>
-      
+      <h2>Annonces Véhicules</h2>
+
       <div className="card-grid">
         {servicesData.map((item) => (
           <div key={item.id} className="service-card">
@@ -261,11 +294,11 @@ const Terrain = () => {
                 <source src={item.src} type="video/mp4" />
               </video>
             )}
-
             <h3>{item.title}</h3>
             <p><strong>Prix :</strong> {item.price}</p>
             <p>
               <strong>Lieu :</strong> {item.location} <br />
+              <strong>Statut:</strong> {item.statut} <br/>
               <a href="#" onClick={() => setSelectedService(item)}>Observer les détails</a>
             </p>
 
@@ -274,12 +307,13 @@ const Terrain = () => {
             <form onSubmit={(e) => handleComment(item.id, e)}>
               <input type="text" name="comment" placeholder="Laissez un commentaire" />
             </form>
-              <button type="submit">Envoyer</button>
+            <button type="submit">Envoyer</button>
 
             <ul className="comment-list">
               {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
             </ul>
 
+            {/* 🔗 Lien vers WhatsApp */}
             <a
               href={whatsappLink}
               target="_blank"
@@ -288,10 +322,12 @@ const Terrain = () => {
             >
               Contacter sur WhatsApp
             </a>
+
           </div>
         ))}
       </div>
 
+      {/* Modal de détails */}
       {selectedService && (
         <div className="modal-overlay" onClick={() => setSelectedService(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -303,9 +339,10 @@ const Terrain = () => {
           </div>
         </div>
       )}
-    </div> 
+    </div>
 </>
+
   );
 };
 
-export default Terrain;
+export default Vehicule;

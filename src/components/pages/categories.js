@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaHeart } from 'react-icons/fa';
-import '../pages/service.css';
+import '../pages/categories.css';
+import body from '../m13.avif';
 
 const serviceData = [
   {
@@ -9,25 +10,34 @@ const serviceData = [
     title: 'Visite virtuelle 360°',
     category: 'Digital',
     description: 'Explorez les biens à distance grâce à une visite immersive.',
-    image: '/images/c78.jpg',
+    image: '/images/m8.avif',
   },
   {
     id: 2,
     title: 'Service juridique',
     category: 'Assistance',
     description: 'Bénéficiez d’un accompagnement pour vos contrats et litiges.',
-    image: '/images/c78.jpg',
+    image: '/images/m9.avif',
   },
   {
     id: 3,
     title: 'Gestion locative',
     category: 'Gestion',
     description: 'Confiez-nous vos biens et laissez-nous gérer vos locataires.',
-    image: '/images/c78.jpg',
+    image: '/images/m10.avif',
   },
 ];
 
-const Service = () => {
+const Categorie = () => {
+
+  const sectionStyleHead = {
+  backgroundImage: `url(${body})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  padding: '100px 0',
+};
+
+
   const [filter, setFilter] = useState('Tous');
   const [likes, setLikes] = useState(Array(serviceData.length).fill(0));
   const [comments, setComments] = useState(Array(serviceData.length).fill([]));
@@ -55,7 +65,25 @@ const Service = () => {
       : serviceData.filter((item) => item.category === filter);
 
   return (
+<>
+  {/* section image */}
+    <section className="head"  style={sectionStyleHead}  >
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-xl-7 col-lg-9 col-md-12">
+                <div class="fpc-capstion text-center my-4">
+                  <div class="fpc-captions">
+                    <h1 class="title-head">Bienvenue chez <strong>Luxis Home Camer</strong></h1>
+                    <p class="text-light">Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+    
     <div className="service-container">
+
       <h2>Nos Services</h2>
 
       <div className="filter-buttons">
@@ -90,8 +118,8 @@ const Service = () => {
 
             <form onSubmit={(e) => handleComment(index, e)}>
               <input type="text" name="comment" placeholder="Votre commentaire..." />
-              <button type="submit">Envoyer</button>
             </form>
+            <button type="submit">Envoyer</button>
 
             <ul className="comment-list">
               {comments[index].map((com, i) => (
@@ -102,7 +130,9 @@ const Service = () => {
         ))}
       </div>
     </div>
+</>
+
   );
 };
 
-export default Service;
+export default Categorie;

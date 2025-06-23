@@ -1,3 +1,20 @@
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.head {
+  animation: fadeInZoom 0.6s ease-out;
+}
+
+
+
 .contact-page {
   display: flex;
   flex-wrap: wrap;
@@ -22,11 +39,11 @@ h2 {
 }
 
 img{
-width: 100px;
-height: 100px;
-
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
 }
-
 
 .contact-info p,
 .contact-info a {

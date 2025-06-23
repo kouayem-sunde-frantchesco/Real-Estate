@@ -1,112 +1,82 @@
-/* Conteneur principal */
-.register-container {
-  min-height: 100vh;
-  background: #f2f2f2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5vw;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  box-sizing: border-box;
-}
-
-/* Formulaire */
-.register-form {
-  background: white;
-  padding: clamp(1.5rem, 5vw, 2.5rem);
+/* Form container centré */
+form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 450px;
-  animation: fadeInZoom 0.6s ease-out;
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Titre du formulaire */
-.register-form h2 {
-  text-align: center;
-  margin-bottom: 20px;
+/* Labels et inputs */
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
   color: #333;
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
 }
 
-/* Groupe de champs */
-.form-group {
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  margin-bottom: 6px;
-  font-weight: 500;
-  color: #555;
-  font-size: 0.95rem;
-}
-
-.form-group input {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline-color: #007bff;
-  transition: border-color 0.3s;
-}
-
-.form-group input:focus {
-  border-color: #007bff;
-}
-
-/* Bouton de validation */
-.register-button {
+input {
   width: 100%;
-  padding: 12px;
-  background-color: #28a745;
+  padding: 10px 12px;
+  margin-bottom: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Bouton dynamique */
+button {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #007BFF;
   border: none;
   color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.register-button:hover {
-  background-color: #218838;
+
+button:hover {
+  background-color: #0056b3;
 }
 
-/* Message d’erreur */
-.error-message {
-  margin-bottom: 15px;
-  background: #f8d7da;
-  color: #721c24;
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #f5c6cb;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 0.95rem;
+/* Messages d'erreur */
+p {
+  /* margin: -0.75rem 0 1rem; */
+  /* color: #d93025; */
+  font-size: 0.9rem;
+  margin: 10px;
+
 }
 
-/* Media queries pour écrans < 500px */
-@media (max-width: 500px) {
-  .register-form {
-    padding: 20px;
+/* Responsive pour mobile */
+@media (max-width: 480px) {
+  form {
+    margin: 1rem;
+    padding: 1rem;
+    max-width: 100%;
   }
 
-  .register-form h2 {
-    font-size: 1.5rem;
-  }
-
-  .form-group input {
-    font-size: 0.95rem;
-  }
-
-  .register-button {
+  input, button {
     font-size: 1rem;
-    padding: 10px;
   }
 }
 
-/* Animation d’apparition */
+
+/* apprition du formulaire */
+
 @keyframes fadeInZoom {
   0% {
     opacity: 0;
@@ -116,4 +86,8 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.login-form {
+  animation: fadeInZoom 0.6s ease-out;
 }

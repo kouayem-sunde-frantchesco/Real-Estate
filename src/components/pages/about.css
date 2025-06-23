@@ -1,3 +1,20 @@
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.head {
+  animation: fadeInZoom 0.6s ease-out;
+}
+
+
+
 .about-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -16,12 +33,36 @@
 }
 
 .about-container h2 {
-  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  font-size: 35px;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
   color: #0056b3;
 }
 
+.img{
+  height:130px;
+  width:200px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.img-choix{
+    height:130px;
+  width:200px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.p{
+  font-size: 20px;
+}
 .about-container ul {
   padding-left: 1.2rem;
 }
@@ -63,16 +104,21 @@
 .img-argent,
 .img-suivi,
 .img-news {
-  width: 100px;
-  height: 100px;
-  margin: 10px auto;
+  width: 400px;
+  height: 200px;
+  border-radius: 4px;
+  /* margin: 10px auto; */
   display: block;
 }
 
+.title1{
+text-align: center;
+font-size: 2px;
+}
 /* Section d’en-tête */
 .header {
   margin: 40px 0 10px 0;
-  text-align: center;
+  /* text-align: center; */
 }
 
 /* Marge autour de la section about */
@@ -81,18 +127,18 @@
   margin-bottom: 20px;
 }
 
+.body{
+  margin-top: 30px;
+}
+
+img{
+  max-width: 300px;
+}
+
 /* Responsive tablettes */
 @media (max-width: 768px) {
   .about-container {
     padding: 1.5rem 1rem;
-  }
-
-  .img-choix,
-  .img-argent,
-  .img-suivi,
-  .img-news {
-    width: 90px;
-    height: 90px;
   }
 
   .head {
@@ -107,7 +153,7 @@
   }
 
   .about-container h2 {
-    font-size: 1.25rem;
+    font-size:100px;
   }
 
   .text-light {
@@ -115,14 +161,6 @@
   }
 
   .head {
-    height: 280px;
-  }
-
-  .img-choix,
-  .img-argent,
-  .img-suivi,
-  .img-news {
-    width: 75px;
-    height: 75px;
-  }
+    height: 280px; 
 }
+  }

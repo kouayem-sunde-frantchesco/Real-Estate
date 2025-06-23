@@ -1,7 +1,6 @@
 import React from 'react';
 import '../pages/about.css';
-import head from '../m10.avif';
-  
+import head from '../m13.avif';  
 
 const About = () => {
 
@@ -25,8 +24,7 @@ const About = () => {
                 <div class="fpc-capstion text-center my-4">
                   <div class="fpc-captions">
                     <h1 class="title-head">Bienvenue chez <strong>Luxis Home Camer</strong></h1>
-                    <p class="text-light">    Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.
-    Nous sélectionnons rigoureusement les meilleures offres pour répondre aux attentes des particuliers, agences et investisseurs.</p>
+                    <p class="text-light">Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.</p>
                   </div>
                 </div>
               </div>
@@ -38,24 +36,46 @@ const About = () => {
 
   <section className='header'>
 
-      <h2>Bienvenue chez <strong>Luxis Home Camer</strong></h2>
+      <h2 className='title1'>      <img src='../images/luxis home camer.png' className='img'></img>Bienvenue chez <strong>Luxis Home Camer<img src='../images/luxis home camer.png' className='img'></img></strong></h2>
+    <section className='body'>
+    <h2>Qui sommes nous?</h2>
+    <img src="./images/dash-2.png" className='img'></img> <br/>
+  </section>
   <p>
     Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.
     Nous sélectionnons rigoureusement les meilleures offres pour répondre aux attentes des particuliers, agences et investisseurs.
   </p>
 
-  <h3><strong>Notre Mission</strong></h3>
+    <h2><strong>Notre Mission</strong></h2>
   <p>
-    Chez Luxis Home Camer, notre mission est de rendre l'immobilier plus simple, plus rapide et plus accessible. Nous vous
-    offrons une expérience transparente et sécurisée, que vous soyez à la recherche d’un logement ou que vous souhaitiez vendre.
+    Chez Luxis Home Camer, notre mission est de Réinventer l'expérience immobiliere en ligne.
   </p>
 
+<div className=''>
+  <p> Nous mettons la technologie au service de l'immobilier, pour permettre a chacun (particulier comme professionnel) de trouver vendre ou louer un bien immobilier en toute simplicité rapidité et sécurité</p>
+
+<p>Dans un marché en constante évolution, nous croyons que l'immobilier ne devrait plus etre un parcours complexe. C'est pourquoi nous avons concu une plateforme moderne, intuitive et accessible, qui:</p>
+
+<p> Facilite la recherche de biens grace a des filtres intellegents et des cartes interactives.</p>
+<p>Valorise les propriétés avec des annonces enrichies (phtoss, vidéos, visites virtuelles)</p>
+<p>Met en relation relation dircete acheteurs, locataires, propriétaire et agences</p>
+<p>Assure la sécurité des échanges et la fialbilité des informations</p>
+<p>Simplifie les démarches grace a des outils digitaux innovantes (prise de rendez-vous,)</p>
+
+<h2>Notre Objectif</h2>
+<p>Offrir a nos utilisateurs une expérience immobiliere fluide, transparente et efficace,  que ce soit pour acheter , louer, vendre ou investir.</p>
+</div>
+
+
   <h3><strong>Pourquoi choisir Luxis Home Camer ?</strong></h3>
+    <div className="img-news"><img src='./images/c5.avif'className='img-news'/>  </div>
+  
   <ul>
-    <li>✅<img src='./images/avif' className='img-choix'/> <strong>Large choix de biens :</strong> appartements, maisons, bureaux, terrains, logements meublés, etc.</li>
-    <li>✅<img src='./images/cadeau2.avif'className='img-news'/> <strong>Offres actualisées :</strong> annonces vérifiées et régulièrement mises à jour.</li>
-    <li>✅<img src='./images/accompagnement3.avif' className='img-suivi'/> <strong>Accompagnement personnalisé :</strong> conseils et assistance tout au long de votre projet immobilier.</li>
-    <li>✅<img src='./images/argent.avif' className='img-argent'/> <strong>Transactions sécurisées :</strong> système de messagerie et options premium pour plus de visibilité.</li>
+    <li> <strong>✅Large choix de biens :</strong> appartements, maisons, bureaux, terrains, logements meublés, etc.{/*<img src='./images/cadeau1.avif' className='img-choix'/>*/}</li>
+    <li>✅{/*<img src='./images/cadeau2.avif'className='img-news'/>*/} <strong>Offres actualisées :</strong> annonces vérifiées et régulièrement mises à jour.</li>
+    <li>✅{/*<img src='./images/accompagnement3.avif' className='img-suivi'/>*/} <strong>Accompagnement personnalisé :</strong> conseils et assistance tout au long de votre projet immobilier.</li>
+    <li>✅{/*<img src='./images/accompagnement3.avif' className='img-suivi'/>*/} <strong>Accompagnement personnalisé :</strong> conseils et assistance tout au long de votre projet immobilier.</li>
+    <li>✅{/*<img src='./images/argent.avif' className='img-argent'/>*/} <strong>Transactions sécurisées :</strong> système de messagerie et options premium pour plus de visibilité.</li>
   </ul>
   </section>
 
@@ -82,6 +102,10 @@ const About = () => {
   </div>
 </section>
 
+</section>
+
+<section>
+    <p>Luxis Home Camer, c'est bien plus qu'un site web immobilier. C'est un partenaire de confiance, engagé a transformer le marché immobilier au Cameroun et en Afrique grace a l'innovation, a la proximité et l'excellence du service.</p>
 </section>
 
 </div>

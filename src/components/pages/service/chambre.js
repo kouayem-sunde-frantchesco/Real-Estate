@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import './appartement.css';
 import { motion } from 'framer-motion';
 import { FaHeart } from 'react-icons/fa';
-import head from '../m10.avif';
+import head from '../m13.avif';
 
   
 const servicesData = [
   {
     id: 1,
     type: 'image',
-    src: '/images/c6.avif',
-    title: 'Chambre moderne',
+    src: '/images/image1.jpg',
+    title: 'Maison moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
@@ -18,53 +18,56 @@ const servicesData = [
   {
     id: 2,
     type: 'video',
-    src: '/videos/sakamoto.mp4',
-    title: 'Chambre moderne',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
   },
-  {
+
+    {
     id: 3,
     type: 'image',
-    src: '/images/c9.jpg',
-    title: 'Chambre Classique',
-    price: '150 000 FCFA/mois',
-    location: 'Douala, Akwa',
-    description: 'Studio moderne avec douche interne.',
-  },
-  {
-    id: 4,
-    type: 'image',
-    src: '/images/c6.avif',
-    title: 'Chambre moderne',
+    src: '/images/image7.jpg',
+    title: 'Maison moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
   },
   {
-    id: 5,
+    id: 4,
     type: 'video',
-    src: '/videos/sakamoto.mp4',
-    title: 'Chambre moderne',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
   },
-  {
-    id: 6,
+
+    {
+    id: 5,
     type: 'image',
-    src: '/images/c45.avif',
-    title: 'Chambre Classique',
-    price: '150 000 FCFA/mois',
-    location: 'Douala, Akwa',
-    description: 'Studio moderne avec douche interne.',
+    src: '/images/hall6.avif',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
   },
   {
+    id: 6,
+    type: 'video',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+  },
+
+    {
     id: 7,
     type: 'image',
-    src: '/images/c5.avif',
-    title: 'Chambre moderne',
+    src: '/images/hall5.avif',
+    title: 'Maison moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
@@ -72,47 +75,125 @@ const servicesData = [
   {
     id: 8,
     type: 'video',
-    src: '/videos/sakamoto.mp4',
-    title: 'Chambre moderne',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
   },
-  {
+
+    {
     id: 9,
     type: 'image',
-    src: '/images/c10.avif',
-    title: 'Chambre Classique',
-    price: '150 000 FCFA/mois',
-    location: 'Douala, Akwa',
-    description: 'Studio moderne avec douche interne.',
-  },
-  {
-    id: 10,
-    type: 'image',
-    src: '/images/c3.avif',
-    title: 'Chambre moderne',
+    src: '/images/hall.avif',
+    title: 'Maison moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
   },
   {
-    id: 11,
+    id: 10,
     type: 'video',
-    src: '/videos/sakamoto.mp4',
-    title: 'Chambre Classique',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
   },
+
+    {
+    id: 11,
+    type: 'image',
+    src: '/images/h5.avif',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
   {
     id: 12,
+    type: 'video',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+  },
+
+    {
+    id: 13,
     type: 'image',
-    src: '/images/c1.avif',
-    title: 'Chambre Classique',
-    price: '150 000 FCFA/mois',
-    location: 'Douala, Akwa',
-    description: 'Studio moderne avec douche interne.',
+    src: '/images/h3.avif',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
+  {
+    id: 14,
+    type: 'video',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+  },
+
+    {
+    id: 15,
+    type: 'image',
+    src: '/images/h4.avif',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
+  {
+    id: 16,
+    type: 'video',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+  },
+
+    {
+    id: 17,
+    type: 'image',
+    src: '/images/h2.avif',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
+  {
+    id: 18,
+    type: 'video',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+  },
+
+    {
+    id: 19,
+    type: 'image',
+    src: '/images/h1.avif',
+    title: 'Maison moderne',
+    price: '75 000 000 FCFA',
+    location: 'Douala, Bonamoussadi',
+    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+  },
+  {
+    id: 20,
+    type: 'video',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
   },
 ];
 
@@ -147,8 +228,8 @@ const Chambre = () => {
   };
 
   return (
-    <div className="service-container">
 
+<>
   {/* section image */}
     <section className="head"  style={sectionStyleHead}  >
           <div class="container">
@@ -157,14 +238,15 @@ const Chambre = () => {
                 <div class="fpc-capstion text-center my-4">
                   <div class="fpc-captions">
                     <h1 class="title-head">Bienvenue chez <strong>Luxis Home Camer</strong></h1>
-                    <p class="text-light">    Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.
-    Nous sélectionnons rigoureusement les meilleures offres pour répondre aux attentes des particuliers, agences et investisseurs.</p>
+                    <p class="text-light">    Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+    <div className="service-container">
 
       <h2>Nos Services Immobiliers</h2>
       
@@ -189,8 +271,8 @@ const Chambre = () => {
 
             <form onSubmit={(e) => handleComment(item.id, e)}>
               <input type="text" name="comment" placeholder="Laissez un commentaire" />
-              <button type="submit">Envoyer</button>
             </form>
+            <button type="submit">Envoyer</button>
 
             <ul className="comment-list">
               {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
@@ -220,6 +302,8 @@ const Chambre = () => {
         </div>
       )}
     </div>
+ 
+</>
   );
 };
 

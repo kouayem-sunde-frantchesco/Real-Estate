@@ -31,7 +31,7 @@ const Footer = () => {
           <ul>
             <li><Link to="/about">Qui sommes-nous ?</Link></li>
             <li><Link to="/signin">Créer un compte</Link></li>
-            <li><Link to={`/service?category`}>Blog</Link></li>
+            <li><Link to={`/service/maison`}>Catégorie</Link></li>
           </ul>
         </div>
 
@@ -44,7 +44,17 @@ const Footer = () => {
             <li><Link to="../service/studio">Studios</Link></li>
             <li><Link to="../service/chambre">Chambres</Link></li>
             <li><Link to="../service/terrain">Terrain</Link></li>
-            <li><Link to="../pages/services">Services</Link></li>
+          </ul>
+        </div>
+
+{/* voitures/motos */}
+        <div className="footer-column">
+          <h4>Besoin de</h4>
+          <ul>
+            <li><Link to="../vehicule/vehicule">Voitures</Link></li>
+            <li><Link to="../vehicule/vehicule">Motos</Link></li>
+            <li><Link to="../vehicule/vehicule">Camions</Link></li>
+            <li><Link to="../vehicule/vehicule">Tricycle</Link></li>
           </ul>
         </div>
 
@@ -53,17 +63,14 @@ const Footer = () => {
           <h4>Nos Offres Premium</h4>
           <ul>
             <li><Link to="/premium/vip">Annonce VIP</Link></li>
-            <li><Link to="/premium/banner">Bannière</Link></li>
-            <li><Link to="/premium/label">Étiquette</Link></li>
-            <li><Link to="/premium/promo">Promo</Link></li>
             <li><Link to="/premium">Premium</Link></li>
           </ul>
 
           <h4>Nos réseaux sociaux</h4>
           <div className="social-icons">
-            <a href="#"><i className="bx bxl-instagram"></i></a>
-            <a href="#"><i className="bx bxl-facebook"></i></a>
-            <a href="#"><i className="bx bxl-tiktok"></i></a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a>
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
           </div>
         </div>
       </div>
