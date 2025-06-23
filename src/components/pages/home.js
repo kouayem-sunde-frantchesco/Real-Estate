@@ -82,7 +82,7 @@ const Home = () => {
         <Link to="/vehicule/vehicule" className="cta-button-vip">Autres Catégories</Link>
         <Link to="/" className="cta-button">
             <a href="https://wa.me/237655479301" id="support" title="Service Client">
-              <img src="../images/whatsap.avif"/>  Service Client
+              Service Client
             </a>
         </Link>
       
