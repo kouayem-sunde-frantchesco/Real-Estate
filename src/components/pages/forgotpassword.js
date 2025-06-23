@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./forgotpassword";
+import "./forgotpassword.css";
 import body from '../m13.avif';
 import Swal from "sweetalert2";
 
@@ -61,7 +61,9 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className="form-container" style={sectionStyleBackground}>
+    <div className="" style={sectionStyleBackground}>
+        <div className="form-container">
+
       <form onSubmit={handleSubmit} noValidate>
         <h2>Mot de passe oublié</h2>
 
@@ -92,7 +94,7 @@ const handleSubmit = async (e) => {
 
       </form>
     </div>
-
+</div>
   );
 }
 

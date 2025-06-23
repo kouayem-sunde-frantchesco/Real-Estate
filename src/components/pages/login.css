@@ -20,7 +20,7 @@
 
 .login-container h2 {
   margin-bottom: 1.5rem;
-  color: #333;
+  color: #007BFF;
 }
 
 .login-container form {
@@ -87,6 +87,6 @@
   }
 }
 
-.login-form {
+.login-container {
   animation: fadeInZoom 0.6s ease-out;
 }

@@ -112,7 +112,9 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className="form-container" style={sectionStyleBackground}>
+    <div className="signin-page" style={sectionStyleBackground}>
+      <div className="form-container">
+
       <form onSubmit={handleSubmit} noValidate>
         <h2>Créer un compte</h2>
 
@@ -178,6 +180,7 @@ const handleSubmit = async (e) => {
         {success && <p className="success-msg">Inscription réussie ! 🎉</p>}
       </form>
     </div>
+  </div>
   );
 };
 

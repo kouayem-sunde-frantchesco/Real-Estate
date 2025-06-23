@@ -4,7 +4,6 @@ import Swal from 'sweetalert2';
 import "./login.css";
 import head from '../m13.avif';
 
-
 const Login =() =>{
 
   const sectionStyleBackground = {
@@ -25,7 +24,7 @@ const handleLogin = async (e) => {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password: mot_de_passe }), // 👈 Vérifie bien le nom utilisé côté backend
+      body: JSON.stringify({ email, password: mot_de_passe }), // 👈 toujours Vérifie bien le nom utilisé côté backend
     });
 
     const data = await response.json();
@@ -80,8 +79,8 @@ return (
             </form>
 
         <div className="login-links">
-          <Link to="./signin">Créer un compte</Link>
-          <Link to="../forgotpassword">Mot de passe oublié ?</Link>
+          <Link to="/signin">Créer un compte</Link>
+          <Link to="/forgotpassword">Mot de passe oublié ?</Link>
         </div>
       </div>
     </div>
