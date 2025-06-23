@@ -14,7 +14,7 @@ const servicesData = [
   {
     id: 1,
     type: 'image',
-    src: '/images/car5.avif',
+    src: '/images/moto/moto1.avif',
     title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
@@ -35,7 +35,7 @@ const servicesData = [
     {
     id: 3,
     type: 'image',
-    src: '/images/car3.avif',
+    src: '/images/moto/moto2.avif',
     title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
@@ -56,7 +56,7 @@ const servicesData = [
     {
     id: 5,
     type: 'image',
-    src: '/images/car6.jpg',
+    src: '/images/moto/moto3.avif',
     title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
@@ -77,7 +77,7 @@ const servicesData = [
     {
     id: 7,
     type: 'image',
-    src: '/images/car4.avif',
+    src: '/images/moto/moto8.avif',
     title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
@@ -98,7 +98,7 @@ const servicesData = [
     {
     id: 9,
     type: 'image',
-    src: '/images/car3.avif',
+    src: '/images/moto/moto10.avif',
     title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
@@ -108,7 +108,7 @@ const servicesData = [
   {
     id: 10,
     type: 'video',
-    src: '/video/m2.mp4',
+    src: '/images/moto/moto9.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -119,7 +119,7 @@ const servicesData = [
     {
     id: 11,
     type: 'image',
-    src: '/images/car5.avif',
+    src: '/images/moto/moto12.avif',
     title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
@@ -129,7 +129,7 @@ const servicesData = [
   {
     id: 12,
     type: 'video',
-    src: '/video/m2.mp4',
+    src: '/images/moto/moto13.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',

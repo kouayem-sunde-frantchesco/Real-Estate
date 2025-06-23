@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './appartement.css';
-import { motion } from 'framer-motion';
-import { FaHeart } from 'react-icons/fa';  
 import head from '../m13.avif';
 
-
-// Numéro WhatsApp du contact (format international, sans espace ni +)
-const whatsappNumber = '237655479301'; // modifier par ton numéro réel
-const whatsappMessage = encodeURIComponent("Bonjour, je suis intéressé par le bien immobilier que vous proposez.");
-const whatsappLink = `https://wa.me/${237655479301}?text=${'Bonjour Bienvenue a Luxiz Home Camer immobilier que puis je faire pour vous?'}`;
+const whatsappLink = `https://wa.me/237655479301?text=${encodeURIComponent("Bonjour Bienvenue à Luxis Home Camer immobilier, que puis-je faire pour vous ?")}`;
 
 const servicesData = [
+  // Remplacez par vos 20 éléments (images + vidéos)
   {
     id: 1,
     type: 'image',
@@ -30,7 +25,7 @@ const servicesData = [
     description: 'Appartement 2 chambres avec cuisine équipée.',
   },
 
-    {
+      {
     id: 3,
     type: 'image',
     src: '/images/image7.jpg',
@@ -204,18 +199,44 @@ const servicesData = [
 ];
 
 const Appartement = () => {
-
   const sectionStyleHead = {
-  backgroundImage: `url(${head})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  padding: '100px 0',
-};
- 
+    backgroundImage: `url(${head})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    padding: '100px 0',
+  };
 
   const [likes, setLikes] = useState({});
   const [comments, setComments] = useState({});
   const [selectedService, setSelectedService] = useState(null);
+
+  // Infinite scroll states
+  const itemsPerPage = 6;
+  const [visibleCount, setVisibleCount] = useState(itemsPerPage);
+  const loadMoreRef = useRef();
+
+  const currentItems = servicesData.slice(0, visibleCount);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && visibleCount < servicesData.length) {
+          setVisibleCount((prev) => prev + itemsPerPage);
+        }
+      },
+      { threshold: 1 }
+    );
+
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+
+    return () => {
+      if (loadMoreRef.current) {
+        observer.unobserve(loadMoreRef.current);
+      }
+    };
+  }, [visibleCount]);
 
   const handleLike = (id) => {
     setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
@@ -233,84 +254,92 @@ const Appartement = () => {
   };
 
   return (
-<>
-  {/* section image */}
-    <section className="head"  style={sectionStyleHead}  >
-          <div class="container">
-            <div class="row align-items-center justify-content-center">
-              <div class="col-xl-7 col-lg-9 col-md-12">
-                <div class="fpc-capstion text-center my-4">
-                  <div class="fpc-captions">
-                    <h1 class="title-head">Bienvenue chez <strong>Luxis Home Camer</strong></h1>
-                    <p class="text-light">    Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.</p>
-                  </div>
+    <>
+      {/* Section image */}
+      <section className="head" style={sectionStyleHead}>
+        <div className="container">
+          <div className="row align-items-center justify-content-center">
+            <div className="col-xl-7 col-lg-9 col-md-12">
+              <div className="fpc-capstion text-center my-4">
+                <div className="fpc-captions">
+                  <h1 className="title-head">
+                    Bienvenue chez <strong>Luxis Home Camer</strong>
+                  </h1>
+                  <p className="text-light">
+                    Luxis Home Camer est votre plateforme en ligne dédiée à l’achat,
+                    la vente et la location de biens immobiliers au Cameroun.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-
-    <div className="service-container">
-
-      <h2>Nos Services Immobiliers</h2>
-
-      <div className="card-grid">
-        {servicesData.map((item) => (
-          <div key={item.id} className="service-card">
-            {item.type === 'image' ? (
-              <img src={item.src} alt={item.title} />
-            ) : (
-              <video controls>
-                <source src={item.src} type="video/mp4" />
-              </video>
-            )}
-            <h3>{item.title}</h3>
-            <p><strong>Prix :</strong> {item.price}</p>
-            <p>
-              <strong>Lieu :</strong> {item.location} <br />
-              <a href="#" onClick={() => setSelectedService(item)}>Voir Plus...</a>
-            </p>
-
-            <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button>
-
-            <form onSubmit={(e) => handleComment(item.id, e)}>
-              <input type="text" name="comment" placeholder="Laissez un commentaire" />
-            </form>
-            <button type="submit" className='btn-submit'>Envoyer</button>
-
-            <ul className="comment-list">
-              {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
-            </ul>
-
-            {/* 🔗 Lien vers WhatsApp */}
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="whatsapp-button"
-            >
-              WhatsApp
-            </a>
-
-          </div>
-        ))}
-      </div>
-
-      {/* Modal de détails */}
-      {selectedService && (
-        <div className="modal-overlay" onClick={() => setSelectedService(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>{selectedService.title}</h3>
-            <p><strong>Prix :</strong> {selectedService.price}</p>
-            <p><strong>Lieu :</strong> {selectedService.location}</p>
-            <p><strong>Description :</strong> {selectedService.description}</p>
-            <button onClick={() => setSelectedService(null)}>Fermer</button>
-          </div>
         </div>
-      )}
-    </div>
-</>
+      </section>
 
+      <div className="service-container">
+        <h2>Nos Services Immobiliers</h2>
+
+        <div className="card-grid">
+          {currentItems.map((item) => (
+            <div key={item.id} className="service-card">
+              {item.type === 'image' ? (
+                <img src={item.src} alt={item.title} />
+              ) : (
+                <video controls>
+                  <source src={item.src} type="video/mp4" />
+                </video>
+              )}
+              <h3>{item.title}</h3>
+              <p><strong>Prix :</strong> {item.price}</p>
+              <p>
+                <strong>Lieu :</strong> {item.location}<br />
+                <a href="#" onClick={() => setSelectedService(item)}>Voir Plus...</a>
+              </p>
+
+              <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button>
+
+              <form onSubmit={(e) => handleComment(item.id, e)}>
+                <input type="text" name="comment" placeholder="Laissez un commentaire" />
+                <button type="submit" className="btn-submit">Envoyer</button>
+              </form>
+
+              <ul className="comment-list">
+                {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
+              </ul>
+
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="whatsapp-button"
+              >
+                WhatsApp
+              </a>
+            </div>
+          ))}
+        </div>
+
+        {/* Loader Trigger for Infinite Scroll */}
+        {visibleCount < servicesData.length && (
+          <div className="infinite-loader" ref={loadMoreRef}>
+            <p>Chargement...</p>
+          </div>
+        )}
+
+        {/* Modal de détails */}
+        {selectedService && (
+          <div className="modal-overlay" onClick={() => setSelectedService(null)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <h3>{selectedService.title}</h3>
+              <p><strong>Prix :</strong> {selectedService.price}</p>
+              <p><strong>Lieu :</strong> {selectedService.location}</p>
+              <p><strong>Description :</strong> {selectedService.description}</p>
+              <button onClick={() => setSelectedService(null)}>Fermer</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
