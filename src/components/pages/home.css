@@ -190,3 +190,33 @@ img {
     font-size: 1rem;
   }
 }
+
+
+/* code des courousels */
+.category-slider {
+  margin: 20px 0;
+}
+
+.category-card {
+  padding: 10px;
+  text-align: center;
+}
+
+.category-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+.category-card span {
+  display: block;
+  margin-top: 8px;
+  font-weight: bold;
+  color: #333;
+}
