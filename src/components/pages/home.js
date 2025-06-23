@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
 import './home.css';
 import body from '../m13.avif';
 
