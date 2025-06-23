@@ -320,7 +320,7 @@ const Vehicule = () => {
               rel="noopener noreferrer"
               className="whatsapp-button"
             >
-              Contacter sur WhatsApp
+              WhatsApp
             </a>
 
           </div>

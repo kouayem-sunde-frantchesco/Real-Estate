@@ -222,7 +222,7 @@ const Maison = () => {
                   <div class="fpc-captions">
                     <h1 class="title-head">Bienvenue chez <strong>Luxis Home Camer</strong></h1>
                     <p class="text-light">    Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.</p>
-                  </div>ghh
+                  </div>
                 </div>
               </div>
             </div>
@@ -257,7 +257,7 @@ const Maison = () => {
               <p><strong>Prix :</strong> {item.price}</p>
               <p>
                 <strong>Lieu :</strong> {item.location} <br />
-                <a href="#" onClick={() => setSelectedService(item)}>Observer les détails</a>
+                <a href="#" onClick={() => setSelectedService(item)}>Voir Plus...</a>
               </p>
 
               {/* Bouton Like */}
@@ -281,7 +281,7 @@ const Maison = () => {
                 rel="noopener noreferrer"
                 className="whatsapp-button"
               >
-                Contacter sur WhatsApp
+                WhatsApp
               </a>
             </div>
           );

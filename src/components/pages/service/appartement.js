@@ -8,7 +8,7 @@ import head from '../m13.avif';
 // Numéro WhatsApp du contact (format international, sans espace ni +)
 const whatsappNumber = '237655479301'; // modifier par ton numéro réel
 const whatsappMessage = encodeURIComponent("Bonjour, je suis intéressé par le bien immobilier que vous proposez.");
-const whatsappLink = `https://wa.me/${237655479301}?text=${'Bonjour Bienvenue a SF immobilier'}`;
+const whatsappLink = `https://wa.me/${237655479301}?text=${'Bonjour Bienvenue a Luxiz Home Camer immobilier que puis je faire pour vous?'}`;
 
 const servicesData = [
   {
@@ -268,7 +268,7 @@ const Appartement = () => {
             <p><strong>Prix :</strong> {item.price}</p>
             <p>
               <strong>Lieu :</strong> {item.location} <br />
-              <a href="#" onClick={() => setSelectedService(item)}>Observer les détails</a>
+              <a href="#" onClick={() => setSelectedService(item)}>Voir Plus...</a>
             </p>
 
             <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button>
@@ -276,7 +276,7 @@ const Appartement = () => {
             <form onSubmit={(e) => handleComment(item.id, e)}>
               <input type="text" name="comment" placeholder="Laissez un commentaire" />
             </form>
-                        <button type="submit">Envoyer</button>
+            <button type="submit" className='btn-submit'>Envoyer</button>
 
             <ul className="comment-list">
               {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
@@ -289,7 +289,7 @@ const Appartement = () => {
               rel="noopener noreferrer"
               className="whatsapp-button"
             >
-              Contacter sur WhatsApp
+              WhatsApp
             </a>
 
           </div>

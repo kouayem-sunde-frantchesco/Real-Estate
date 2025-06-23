@@ -107,9 +107,11 @@ h2 {
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s ease;
+    margin-right: 180px;
 }
 
 .whatsapp-button:hover {
   background-color: #128C7E;
+    margin-right: 180px;
 }
 

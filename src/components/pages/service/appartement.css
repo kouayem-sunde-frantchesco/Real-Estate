@@ -13,9 +13,6 @@
   animation: fadeInZoom 0.6s ease-out;
 }
 
-
-
-
 .services-container {
   padding: 40px 20px;
   background-color: #f9f9f9;
@@ -209,6 +206,9 @@ input[type="text"] {
   width: 90%;
 }
 
+/* .btn-submit{
+    margin-right: 180px;
+} */
 
 .modal-content button{
 color: #f9f9f9;
@@ -217,20 +217,21 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 font-size: 14px;
 border-radius: 5px;
 width: 70px;
-height: 30px;
+height: 10px;
 box-shadow: #007BFF;
 }
 
 .whatsapp-button {
   display: inline-block;
   margin-top: 8px;
-  padding: 8px 12px;
+  padding: 8px 8px;
   background-color: #1d9b4b;
   color: white;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  margin-right: 180px;
 }
 
 .whatsapp-button:hover {

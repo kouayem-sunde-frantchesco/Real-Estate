@@ -264,7 +264,7 @@ const Chambre = () => {
             <p><strong>Prix :</strong> {item.price}</p>
             <p>
               <strong>Lieu :</strong> {item.location} <br />
-              <a href="#" onClick={() => setSelectedService(item)}>Observer les détails</a>
+              <a href="#" onClick={() => setSelectedService(item)}>Voir Plus...</a>
             </p>
 
             <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button>
@@ -284,7 +284,7 @@ const Chambre = () => {
               rel="noopener noreferrer"
               className="whatsapp-button"
             >
-              Contacter sur WhatsApp
+              WhatsApp
             </a>
           </div>
         ))}
