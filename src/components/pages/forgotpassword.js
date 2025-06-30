@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./forgotpassword.css";
+// import "./forgotpassword.css";
 import body from '../m13.avif';
 import Swal from "sweetalert2";
 
