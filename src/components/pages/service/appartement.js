@@ -3,9 +3,9 @@ import './appartement.css';
 import head from '../m13.avif';
 
 const whatsappLink = `https://wa.me/237655479301?text=${encodeURIComponent("Bonjour Bienvenue à Luxis Home Camer immobilier, que puis-je faire pour vous ?")}`;
-
 const servicesData = [
-  // Remplacez par vos 20 éléments (images + vidéos)
+
+
   {
     id: 1,
     type: 'image',
@@ -177,24 +177,6 @@ const servicesData = [
     description: 'Appartement 2 chambres avec cuisine équipée.',
   },
 
-    {
-    id: 19,
-    type: 'image',
-    src: '/images/h1.avif',
-    title: 'Maison moderne',
-    price: '75 000 000 FCFA',
-    location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
-  },
-  {
-    id: 20,
-    type: 'video',
-    src: '/video/m2.mp4',
-    title: 'Appartement meublé',
-    price: '350 000 FCFA/mois',
-    location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
-  },
 
 ];
 
@@ -299,22 +281,29 @@ const Appartement = () => {
               <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button>
 
               <form onSubmit={(e) => handleComment(item.id, e)}>
-                <input type="text" name="comment" placeholder="Laissez un commentaire" />
-                <button type="submit" className="btn-submit">Envoyer</button>
+                <div className=''>
+                    <input type="text" name="comment" placeholder="Laissez un commentaire" />
+                    <button type="submit" className="btn-submit">Envoyer</button>
+
+                  {/* <button type="submit" className="btn-submit">Envoyer</button> */}
+                                  <div className='contain-comment'>
+                    <ul className="comment-list">
+                      {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
+                    </ul>
+
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="whatsapp-button"
+                    >
+                      WhatsApp
+                    </a>
+                </div>
+                </div>
+
               </form>
 
-              <ul className="comment-list">
-                {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
-              </ul>
-
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="whatsapp-button"
-              >
-                WhatsApp
-              </a>
             </div>
           ))}
         </div>

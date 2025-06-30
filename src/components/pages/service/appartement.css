@@ -90,7 +90,7 @@ h2 {
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .like-btn:hover, .comment-btn:hover {
@@ -151,6 +151,11 @@ h2 {
   gap: 20px;
 }
 
+.contain-comment{
+    display: grid;
+}
+
+
 .service-card {
   background: #fff;
   border-radius: 12px;
@@ -206,9 +211,10 @@ input[type="text"] {
   width: 90%;
 }
 
-/* .btn-submit{
-    margin-right: 180px;
-} */
+.btn-submit{
+    margin: 10px;
+
+}
 
 .modal-content button{
 color: #f9f9f9;

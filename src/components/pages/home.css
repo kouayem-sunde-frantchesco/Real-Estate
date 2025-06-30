@@ -26,6 +26,9 @@ img {
   height: auto;
   max-height: 600px;
   object-fit: cover;
+  align-items: center;
+  /* margin-left: 50px; */
+  margin-top: 5px;
 }
 
 .banner {
@@ -58,6 +61,8 @@ img {
   height: 30px;
   margin-top: 5px;
   padding-top: 10px;
+  align-items: center;
+  padding: 20px;
 }
 
 /* === BOUTONS CTA === */
@@ -184,6 +189,7 @@ img {
 
   .category-card img {
     height: 80px;
+    align-self: center;
   }
 
   .info-section li {
@@ -208,10 +214,12 @@ img {
   object-fit: cover;
   border-radius: 10px;
   transition: transform 0.3s;
+  align-items: center;
 }
 
 .category-card:hover img {
   transform: scale(1.05);
+  align-items: center;
 }
 
 .category-card span {

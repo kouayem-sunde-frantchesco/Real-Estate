@@ -149,8 +149,8 @@ const servicesData = [
   },
   {
     id: 14,
-    type: 'video',
-    src: '/video/m2.mp4',
+    type: 'image',
+    src: '/images/voiture/voiture10.jpg',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -161,7 +161,7 @@ const servicesData = [
     {
     id: 15,
     type: 'image',
-    src: '/images/car6.jpg',
+    src: '/images/voiture/voiture1.avif',
     title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
@@ -170,8 +170,8 @@ const servicesData = [
   },
   {
     id: 16,
-    type: 'video',
-    src: '/video/m2.mp4',
+    type: 'image',
+    src: '/images/voiture/voiture11.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -191,8 +191,8 @@ const servicesData = [
   },
   {
     id: 18,
-    type: 'video',
-    src: '/video/m2.mp4',
+    type: 'image',
+    src: '/images/voiture/voiture12.jpg',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -203,7 +203,7 @@ const servicesData = [
     {
     id: 19,
     type: 'image',
-    src: '/images/car3.avif',
+    src: '/images/voiture/tesla.avif',
     title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
@@ -213,7 +213,7 @@ const servicesData = [
   {
     id: 20,
     type: 'video',
-    src: '/video/m2.mp4',
+    src: '/images/voiture/voiture2.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -223,7 +223,7 @@ const servicesData = [
     {
     id: 21,
     type: 'image',
-    src: '/images/car3.avif',
+    src: '/images/voiture/voiture3.avif',
     title: 'Mitsubishi Pajero ',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
