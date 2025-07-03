@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
+import Dashboard from './components/pages/dashboard';
 import Navbar from './components/pages/navbar';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/pages/home';
@@ -34,6 +35,10 @@ function App() {
         <Route path="/" element={
           <PrivateRoute><Home /></PrivateRoute>
         } />
+        <Route path="/dashboard" element={
+          <PrivateRoute><Dashboard /></PrivateRoute>
+        } />
+
         <Route path="/about" element={
           <PrivateRoute><About /></PrivateRoute>
         } />
