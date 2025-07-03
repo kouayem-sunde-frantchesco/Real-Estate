@@ -66,6 +66,7 @@ const Home = () => {
         ))}
       </Slider>
     </section>
+
   );
 
   return (

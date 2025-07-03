@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
 
 
-const Register = () => {
+const Signin = () => {
   const sectionStyleBackground = {
     backgroundImage: `url(${head})`,
     backgroundSize: 'cover',
@@ -52,12 +52,12 @@ const handleSubmit = async (e) => {
 
   if (Object.keys(validationErrors).length === 0) {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/signup`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" 
+
+          },
+          body: JSON.stringify({
           username: formData.username,
           email: formData.email,
           password: formData.password,
@@ -174,7 +174,7 @@ const handleSubmit = async (e) => {
         <button type="submit">S'inscrire</button>
          
          <div className="login-links">
-            <Link to="../login">Se connecter</Link>
+            <Link to="/login">Se connecter</Link>
           </div>
 
         {success && <p className="success-msg">Inscription réussie ! 🎉</p>}
@@ -184,4 +184,4 @@ const handleSubmit = async (e) => {
   );
 };
 
-export default Register;
+export default Signin;

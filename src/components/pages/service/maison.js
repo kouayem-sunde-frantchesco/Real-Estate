@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './appartement.css';
+import './maison.css';
 import { motion } from 'framer-motion';
 import { FaHeart } from 'react-icons/fa';
 import head from '../m13.avif';
@@ -212,7 +212,6 @@ const Maison = () => {
   return (
 <>
 
-
   {/* section image */}
     <section className="head"  style={sectionStyleHead}  >
           <div class="container">
@@ -257,7 +256,7 @@ const Maison = () => {
               <p><strong>Prix :</strong> {item.price}</p>
               <p>
                 <strong>Lieu :</strong> {item.location} <br />
-                <a href="#" onClick={() => setSelectedService(item)}>Voir Plus...</a>
+                <a href="#" onClick={() => setSelectedService(item)} >Voir Plus...</a>
               </p>
 
               {/* Bouton Like */}

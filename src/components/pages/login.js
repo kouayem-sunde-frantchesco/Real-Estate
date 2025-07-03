@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import "./login.css";
@@ -21,7 +22,7 @@ const handleLogin = async (e) => {
   const mot_de_passe = e.target.password.value;
 
   try {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
+    const response = await fetch("http://localhost:4000/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password: mot_de_passe }), // 👈 toujours Vérifie bien le nom utilisé côté backend
@@ -32,6 +33,8 @@ const handleLogin = async (e) => {
     if (response.ok) {
       // ✅ Stocker le token dans le localStorage
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
 
       // ✅ Afficher message de succès
       Swal.fire({

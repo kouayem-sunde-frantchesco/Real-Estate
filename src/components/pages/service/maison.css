@@ -14,7 +14,6 @@
 }
 
 
-
 .services-container {
   padding: 40px 20px;
   background-color: #f9f9f9;
@@ -26,6 +25,12 @@ h2 {
   color: #1F3B4D;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+.no-underline {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 .card-grid {
   display: grid;

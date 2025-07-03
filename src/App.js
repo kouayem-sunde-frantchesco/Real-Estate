@@ -1,8 +1,8 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Navbar from './components/pages/navbar';
-// import Navbar2 from './components/pages/navbar2';
+import PrivateRoute from './components/PrivateRoute';
 import Home from './components/pages/home';
 import About from './components/pages/about';
 import Contact from './components/pages/contact'; 
@@ -20,33 +20,55 @@ import ScrollToTop from './components/ScrollToTop.js';
 import Footer from './components/pages/footer';
 
 function App() {
-
   return (
     <BrowserRouter>
       <Navbar />
-        <ScrollToTop />
+      <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/categories" element={<Categorie />} />
-        <Route path="/contact" element={<Contact />} />
+        {/* ✅ Routes publiques */}
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
 
-{/* pages service */}
-        <Route path="/service/appartement" element={<Appartement />} />
-        <Route path="/service/chambre" element={<Chambre />} />
-        <Route path="/service/maison" element={<Maison />} />
-        <Route path="/service/studio" element={<Studio />} />
-        <Route path="/service/terrain" element={<Terrain />} />
+        {/* ✅ Routes protégées */}
+        <Route path="/" element={
+          <PrivateRoute><Home /></PrivateRoute>
+        } />
+        <Route path="/about" element={
+          <PrivateRoute><About /></PrivateRoute>
+        } />
+        <Route path="/contact" element={
+          <PrivateRoute><Contact /></PrivateRoute>
+        } />
+        <Route path="/categories" element={
+          <PrivateRoute><Categorie /></PrivateRoute>
+        } />
 
-{/* pages vehicules*/}
-        <Route path="/vehicule/vehicule"element={<Vehicule/>} />
+        {/* ✅ Pages service protégées */}
+        <Route path="/service/appartement" element={
+          <PrivateRoute><Appartement /></PrivateRoute>
+        } />
+        <Route path="/service/chambre" element={
+          <PrivateRoute><Chambre /></PrivateRoute>
+        } />
+        <Route path="/service/maison" element={
+          <PrivateRoute><Maison /></PrivateRoute>
+        } />
+        <Route path="/service/studio" element={
+          <PrivateRoute><Studio /></PrivateRoute>
+        } />
+        <Route path="/service/terrain" element={
+          <PrivateRoute><Terrain /></PrivateRoute>
+        } />
 
-        
+        {/* ✅ Page véhicule protégée */}
+        <Route path="/vehicule/vehicule" element={
+          <PrivateRoute><Vehicule /></PrivateRoute>
+        } />
+
+        {/* 🔁 Par défaut : redirection vers / */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-
       <Footer />
     </BrowserRouter>
   );

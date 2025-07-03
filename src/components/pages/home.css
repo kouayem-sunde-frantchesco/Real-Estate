@@ -120,6 +120,7 @@ img {
   overflow: hidden;
   background-color: #fafafa;
   transition: transform 0.2s ease;
+  
 }
 
 .category-card:hover {
