@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 import './appartement.css';
 import head from '../m13.avif';
 
@@ -14,6 +16,13 @@ const servicesData = [
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
   {
     id: 2,
@@ -23,6 +32,7 @@ const servicesData = [
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'VIP'
   },
 
       {
@@ -33,6 +43,7 @@ const servicesData = [
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    label: 'PREMIUM'
   },
   {
     id: 4,
@@ -188,7 +199,84 @@ const Appartement = () => {
     padding: '100px 0',
   };
 
-  const [likes, setLikes] = useState({});
+// fonction modal pour planifier la visite
+const [visitModalOpen, setVisitModalOpen] = useState(false);
+const [visitForm, setVisitForm] = useState({
+  name: '',
+  email: '',
+  date: '',
+  time: '',
+  property: null,
+});
+
+const handleVisitChange = (e) => {
+  const { name, value } = e.target;
+  setVisitForm((prev) => ({ ...prev, [name]: value }));
+};
+
+const handleVisitSubmit = (e) => {
+  e.preventDefault();
+  const message = `Bonjour, je souhaite visiter le bien "${visitForm.property.title}" à ${visitForm.date} à ${visitForm.time}. Mon nom est ${visitForm.name}, email: ${visitForm.email}.`;
+
+  const encoded = encodeURIComponent(message);
+  window.open(`https://wa.me/237655479301?text=${encoded}`, "_blank");
+
+  setVisitModalOpen(false);
+};
+
+// fonction pour generer le PDF du contrat de location
+const generatePDF = (service) => {
+  const doc = new jsPDF();
+
+  doc.setFontSize(18);
+  doc.text("Contrat de Location / Vente Immobilier", 14, 22);
+
+  doc.setFontSize(12);
+  doc.text(`Nom du bien: ${service.title}`, 14, 40);
+  doc.text(`Lieu: ${service.location}`, 14, 50);
+  doc.text(`Prix: ${service.price}`, 14, 60);
+  doc.text(`Description: ${service.description}`, 14, 70);
+  doc.text(`Date: ${new Date().toLocaleDateString()}`, 14, 80);
+
+  autoTable(doc, {
+    startY: 90,
+    head: [['Clause', 'Description']],
+    body: [
+      ['Durée', 'Ce contrat est valable pour une période de 12 mois renouvelable.'],
+      ['Paiement', 'Le paiement doit être effectué mensuellement avant le 7 de chaque mois.'],
+      ['Engagement', 'Le locataire s’engage à respecter les lieux.'],
+    ],
+  });
+
+  // Position après la table
+  const finalY = doc.lastAutoTable.finalY || 100;
+
+  // Ajouter espace signature client
+  doc.text("Signature du client :", 14, finalY + 20);
+  doc.line(14, finalY + 25, 90, finalY + 25); // ligne signature client
+
+  // Ajouter espace signature agent immobilier
+  doc.text("Signature de l'agent immobilier :", 120, finalY + 20);
+  doc.line(120, finalY + 25, 190, finalY + 25); // ligne signature agent
+
+  doc.save(`contrat-${service.title}.pdf`);
+};
+
+// filtre de recherche
+const [filters, setFilters] = useState({
+  minPrice: '',
+  maxPrice: '',
+  propertyType: '',
+  rooms: '',
+  bathrooms: '',
+  minSize: '',
+  furnished: '',
+  available: ''
+});
+
+
+  
+  // const [likes, setLikes] = useState({});
   const [comments, setComments] = useState({});
   const [selectedService, setSelectedService] = useState(null);
 
@@ -196,6 +284,19 @@ const Appartement = () => {
   const itemsPerPage = 6;
   const [visibleCount, setVisibleCount] = useState(itemsPerPage);
   const loadMoreRef = useRef();
+
+const filteredServices = servicesData.filter(item => {
+  const minPrice = filters.minPrice ? item.price >= parseInt(filters.minPrice) : true;
+  const maxPrice = filters.maxPrice ? item.price <= parseInt(filters.maxPrice) : true;
+  const type = filters.propertyType ? item.propertyType === filters.propertyType : true;
+  const rooms = filters.rooms ? item.rooms === parseInt(filters.rooms) : true;
+  const bathrooms = filters.bathrooms ? item.bathrooms === parseInt(filters.bathrooms) : true;
+  const size = filters.minSize ? item.size >= parseInt(filters.minSize) : true;
+  const furnished = filters.furnished ? item.furnished === (filters.furnished === 'true') : true;
+  const available = filters.available ? item.available === (filters.available === 'true') : true;
+
+  return minPrice && maxPrice && type && rooms && bathrooms && size && furnished && available;
+});
 
   const currentItems = servicesData.slice(0, visibleCount);
 
@@ -220,20 +321,20 @@ const Appartement = () => {
     };
   }, [visibleCount]);
 
-  const handleLike = (id) => {
-    setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
-  };
+  // const handleLike = (id) => {
+  //   setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  // };
 
-  const handleComment = (id, e) => {
-    e.preventDefault();
-    const commentText = e.target.elements.comment.value;
-    if (!commentText) return;
-    setComments((prev) => ({
-      ...prev,
-      [id]: [...(prev[id] || []), commentText],
-    }));
-    e.target.reset();
-  };
+  // const handleComment = (id, e) => {
+  //   e.preventDefault();
+  //   const commentText = e.target.elements.comment.value;
+  //   if (!commentText) return;
+  //   setComments((prev) => ({
+  //     ...prev,
+  //     [id]: [...(prev[id] || []), commentText],
+  //   }));
+  //   e.target.reset();
+  // };
 
   return (
     <>
@@ -262,6 +363,8 @@ const Appartement = () => {
         <h2>Nos Services Immobiliers</h2>
 
         <div className="card-grid">
+
+
           {currentItems.map((item) => (
             <div key={item.id} className="service-card">
               {item.type === 'image' ? (
@@ -278,55 +381,115 @@ const Appartement = () => {
                 <a href="#" onClick={() => setSelectedService(item)}>Voir Plus...</a>
               </p>
 
-              <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button>
+              {/* <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button> */}
 
-              <form onSubmit={(e) => handleComment(item.id, e)}>
-                <div className=''>
-                    <input type="text" name="comment" placeholder="Laissez un commentaire" />
-                    <button type="submit" className="btn-submit">Envoyer</button>
+              {/* <form onSubmit={(e) => handleComment(item.id, e)}>
+                <div className=''> */}
+                    {/* <input type="text" name="comment" placeholder="Laissez un commentaire" />
+                    <button type="submit" className="btn-submit">Envoyer</button> */}
 
                   {/* <button type="submit" className="btn-submit">Envoyer</button> */}
-                                  <div className='contain-comment'>
+                                  {/* <div className='contain-comment'>
                     <ul className="comment-list">
                       {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
-                    </ul>
+                    </ul> */}
 
-                    <a
-                      href={whatsappLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="whatsapp-button"
-                    >
-                      WhatsApp
-                    </a>
-                </div>
-                </div>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-button"
+            >
+              WhatsApp
+            </a>
 
-              </form>
+{/* bouton planifier visite */}
+            <button onClick={() => {
+              setVisitForm((prev) => ({ ...prev, property: item }));
+              setVisitModalOpen(true);
+            }} className="visit-button">
+              Planifier une visite
+            </button>
 
-            </div>
-          ))}
+{/* bouton pour avoir le contrat PDF */}
+        <button onClick={() => generatePDF(item)} className="btn-generate">
+          📄 Obténir le contrat
+        </button>
+
+          </div>
+        ))}
+      </div>
+
+{/* formmulaire de filtre */}
+      <div className="filter-form">
+        <h3>Recherche avancée</h3>
+        <form>
+          <input type="number" placeholder="Prix min" onChange={(e) => setFilters({ ...filters, minPrice: e.target.value })} />
+          <input type="number" placeholder="Prix max" onChange={(e) => setFilters({ ...filters, maxPrice: e.target.value })} />
+          
+          <select onChange={(e) => setFilters({ ...filters, propertyType: e.target.value })}>
+            <option value="">Type de bien</option>
+            <option value="villa">Villa</option>
+            <option value="duplex">Duplex</option>
+            <option value="studio">Studio</option>
+          </select>
+          
+          <input type="number" placeholder="Chambres" onChange={(e) => setFilters({ ...filters, rooms: e.target.value })} />
+          <input type="number" placeholder="Salles de bain" onChange={(e) => setFilters({ ...filters, bathrooms: e.target.value })} />
+          
+          <input type="number" placeholder="Superficie min (m²)" onChange={(e) => setFilters({ ...filters, minSize: e.target.value })} />
+          
+          <select onChange={(e) => setFilters({ ...filters, furnished: e.target.value })}>
+            <option value="">Meublé ?</option>
+            <option value="true">Oui</option>
+            <option value="false">Non</option>
+          </select>
+
+          <select onChange={(e) => setFilters({ ...filters, available: e.target.value })}>
+            <option value="">Disponibilité</option>
+            <option value="true">Immédiate</option>
+            <option value="false">Non disponible</option>
+          </select>
+        </form>
+      </div>
+
+
+      {selectedService && (
+        <div className="modal-overlay" onClick={() => setSelectedService(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h3>{selectedService.title}</h3>
+            <p><strong>Prix :</strong> {selectedService.price}</p>
+            <p><strong>Lieu :</strong> {selectedService.location}</p>
+            <p><strong>Description :</strong> {selectedService.description}</p>
+            <p><strong>Label :</strong> {selectedService.label}</p>
+            <p><strong>Rooms :</strong> {selectedService.rooms}</p>
+            <p><strong>Bathrooms :</strong> {selectedService.bathrooms}</p>
+            <p><strong>Size :</strong> {selectedService.size}</p>
+            <p><strong>Furnished :</strong> {selectedService.furnished}</p>
+            <p><strong>Avalaible :</strong> {selectedService.avalaible}</p>
+            <p><strong>PropertyType :</strong> {selectedService.propertytype}</p>
+            <button onClick={() => setSelectedService(null)}>Fermer</button>
+          </div>
         </div>
+      )}
 
-        {/* Loader Trigger for Infinite Scroll */}
-        {visibleCount < servicesData.length && (
-          <div className="infinite-loader" ref={loadMoreRef}>
-            <p>Chargement...</p>
-          </div>
-        )}
-
-        {/* Modal de détails */}
-        {selectedService && (
-          <div className="modal-overlay" onClick={() => setSelectedService(null)}>
+{/* modal de planification */}
+        {visitModalOpen && (
+          <div className="modal-overlay" onClick={() => setVisitModalOpen(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <h3>{selectedService.title}</h3>
-              <p><strong>Prix :</strong> {selectedService.price}</p>
-              <p><strong>Lieu :</strong> {selectedService.location}</p>
-              <p><strong>Description :</strong> {selectedService.description}</p>
-              <button onClick={() => setSelectedService(null)}>Fermer</button>
+              <h3>Planifier une visite</h3>
+              <form onSubmit={handleVisitSubmit}>
+                <input type="text" name="name" placeholder="Votre nom" required onChange={handleVisitChange} />
+                <input type="email" name="email" placeholder="Votre email" required onChange={handleVisitChange} />
+                <input type="date" name="date" required onChange={handleVisitChange} />
+                <input type="time" name="time" required onChange={handleVisitChange} />
+                <button type="submit" className='btn-planifier'>Envoyer</button>
+              </form>
             </div>
           </div>
         )}
+
+
       </div>
     </>
   );

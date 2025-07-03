@@ -76,6 +76,7 @@ const Navbar = ({ onHamburgerClick }) => {
           </div>
 
           <Link to="/contact" className="nav-link">{t('contact')}</Link>
+          <Link to="/visite" className="nav-link">{t('visite')}</Link>
 
           {!user ? (
             <>
@@ -114,6 +115,7 @@ const Navbar = ({ onHamburgerClick }) => {
             </div>
           </details>
           <Link to="/contact" className="nav-link">{t('contact')}</Link>
+
 
           {!user ? (
             <>

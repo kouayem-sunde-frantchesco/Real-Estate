@@ -115,3 +115,86 @@ h2 {
     margin-right: 180px;
 }
 
+
+
+
+/* planification */
+.visit-button {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.modal-content form input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.h3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/* fichier PDF contrat de bail */
+.btn-generate {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* css du payement */
+
+.service-card {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.badge-vip {
+  background-color: #e91e63; /* rose foncé */
+}
+
+.badge-premium {
+  background-color: #ff9800; /* orange */
+}
+
+.badge-top {
+  background-color: #4caf50; /* vert */
+}
+
+.service-card.vip {
+  border: 2px solid #e91e63;
+}
+
+.service-card.premium {
+  border: 2px solid #ff9800;
+}
+
+.service-card.top {
+  border: 2px solid #4caf50;
+}

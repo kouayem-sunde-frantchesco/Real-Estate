@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 import './maison.css';
 import { motion } from 'framer-motion';
 import { FaHeart } from 'react-icons/fa';
@@ -188,26 +190,88 @@ const Maison = () => {
   padding: '100px 0',
 };
 
-  const [likes, setLikes] = useState({});
-  const [comments, setComments] = useState({});
+const [visitModalOpen, setVisitModalOpen] = useState(false);
+const [visitForm, setVisitForm] = useState({
+  name: '',
+  email: '',
+  date: '',
+  time: '',
+  property: null,
+});
+
+const handleVisitChange = (e) => {
+  const { name, value } = e.target;
+  setVisitForm((prev) => ({ ...prev, [name]: value }));
+};
+
+const handleVisitSubmit = (e) => {
+  e.preventDefault();
+  const message = `Bonjour, je souhaite visiter le bien "${visitForm.property.title}" à ${visitForm.date} à ${visitForm.time}. Mon nom est ${visitForm.name}, email: ${visitForm.email}.`;
+
+  const encoded = encodeURIComponent(message);
+  window.open(`https://wa.me/237655479301?text=${encoded}`, "_blank");
+
+  setVisitModalOpen(false);
+};
+
+const generatePDF = (service) => {
+  const doc = new jsPDF();
+
+  doc.setFontSize(18);
+  doc.text("Contrat de Location / Vente Immobilier", 14, 22);
+
+  doc.setFontSize(12);
+  doc.text(`Nom du bien: ${service.title}`, 14, 40);
+  doc.text(`Lieu: ${service.location}`, 14, 50);
+  doc.text(`Prix: ${service.price}`, 14, 60);
+  doc.text(`Description: ${service.description}`, 14, 70);
+  doc.text(`Date: ${new Date().toLocaleDateString()}`, 14, 80);
+
+  autoTable(doc, {
+    startY: 90,
+    head: [['Clause', 'Description']],
+    body: [
+      ['Durée', 'Ce contrat est valable pour une période de 12 mois renouvelable.'],
+      ['Paiement', 'Le paiement doit être effectué mensuellement avant le 7 de chaque mois.'],
+      ['Engagement', 'Le locataire s’engage à respecter les lieux.'],
+    ],
+  });
+
+  // Position après la table
+  const finalY = doc.lastAutoTable.finalY || 100;
+
+  // Ajouter espace signature client
+  doc.text("Signature du client :", 14, finalY + 20);
+  doc.line(14, finalY + 25, 90, finalY + 25); // ligne signature client
+
+  // Ajouter espace signature agent immobilier
+  doc.text("Signature de l'agent immobilier :", 120, finalY + 20);
+  doc.line(120, finalY + 25, 190, finalY + 25); // ligne signature agent
+
+  doc.save(`contrat-${service.title}.pdf`);
+};
+
+
+  // const [likes, setLikes] = useState({});
+  // const [comments, setComments] = useState({});
   const [selectedService, setSelectedService] = useState(null);
 
   // Fonction de like
-  const handleLike = (id) => {
-    setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
-  };
+  // const handleLike = (id) => {
+  //   setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  // };
 
   // Fonction pour poster un commentaire
-  const handleComment = (id, e) => {
-    e.preventDefault();
-    const commentText = e.target.elements.comment.value;
-    if (!commentText) return;
-    setComments((prev) => ({
-      ...prev,
-      [id]: [...(prev[id] || []), commentText],
-    }));
-    e.target.reset();
-  };
+  // const handleComment = (id, e) => {
+  //   e.preventDefault();
+  //   const commentText = e.target.elements.comment.value;
+  //   if (!commentText) return;
+  //   setComments((prev) => ({
+  //     ...prev,
+  //     [id]: [...(prev[id] || []), commentText],
+  //   }));
+  //   e.target.reset();
+  // };
 
   return (
 <>
@@ -260,18 +324,18 @@ const Maison = () => {
               </p>
 
               {/* Bouton Like */}
-              <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button>
+              {/* <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button> */}
 
               {/* Formulaire de commentaire */}
-              <form onSubmit={(e) => handleComment(item.id, e)}>
+              {/* <form onSubmit={(e) => handleComment(item.id, e)}>
                 <input type="text" name="comment" placeholder="Laissez un commentaire" />
               </form>
-               <button type="submit">Envoyer</button>             
+               <button type="submit">Envoyer</button>              */}
 
               {/* Liste des commentaires */}
-              <ul className="comment-list">
+              {/* <ul className="comment-list">
                 {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
-              </ul>
+              </ul> */}
 
               {/* 🔗 Lien vers WhatsApp */}
               <a
@@ -282,6 +346,19 @@ const Maison = () => {
               >
                 WhatsApp
               </a>
+
+{/* bouton planifier visite */}
+            <button onClick={() => {
+              setVisitForm((prev) => ({ ...prev, property: item }));
+              setVisitModalOpen(true);
+            }} className="visit-button">
+              Planifier une visite
+            </button>
+
+{/* bouton pour avoir le contrat PDF */}
+        <button onClick={() => generatePDF(item)} className="btn-generate">
+          📄 Obténir le contrat
+        </button>
             </div>
           );
         })}
@@ -299,8 +376,25 @@ const Maison = () => {
           </div>
         </div>
       )}
-    </div>
 
+{/* modal de planification */}
+        {visitModalOpen && (
+          <div className="modal-overlay" onClick={() => setVisitModalOpen(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <h3>Planifier une visite</h3>
+              <form onSubmit={handleVisitSubmit}>
+                <input type="text" name="name" placeholder="Votre nom" required onChange={handleVisitChange} />
+                <input type="email" name="email" placeholder="Votre email" required onChange={handleVisitChange} />
+                <input type="date" name="date" required onChange={handleVisitChange} />
+                <input type="time" name="time" required onChange={handleVisitChange} />
+                <button type="submit" className='btn-planifier'>Envoyer</button>
+              </form>
+            </div>
+          </div>
+        )}
+
+
+    </div>
 </>
 
   );
