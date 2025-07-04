@@ -117,3 +117,9 @@ button:hover {
     flex-direction: column;
   }
 }
+
+.success-msg {
+  color: green;
+  margin-top: 10px;
+  font-weight: bold;
+}
