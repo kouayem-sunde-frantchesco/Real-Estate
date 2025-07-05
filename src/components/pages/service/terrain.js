@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import './appartement.css';
-import { motion } from 'framer-motion';
-import { FaHeart } from 'react-icons/fa';
+// import { motion } from 'framer-motion';
+// import { FaHeart } from 'react-icons/fa';
 import head from '../m13.avif';
   
 const servicesData = [

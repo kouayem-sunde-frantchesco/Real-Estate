@@ -15,7 +15,7 @@ nav {
   right: 0;
   z-index: 1000;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  padding-bottom: 2px;
+  /* padding-bottom: 20px; */
 }
 
 /* Conteneur principal */

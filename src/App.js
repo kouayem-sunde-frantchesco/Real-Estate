@@ -16,6 +16,10 @@ import Chambre from './components/pages/service/chambre';
 import Maison from './components/pages/service/maison';
 import Studio from './components/pages/service/studio';
 import Terrain from './components/pages/service/terrain';
+import Favoris from './components/pages/favoris';
+import Annonces from './components/pages/annonces';
+import Notifications from './components/pages/notifications';
+import Parametres from "./components/pages/parametres.js";
 import Vehicule from "./components/pages/vehicule/vehicule";
 import ScrollToTop from './components/ScrollToTop.js';
 import Footer from './components/pages/footer';
@@ -38,6 +42,20 @@ function App() {
 
         <Route path="/dashboard" element={
           <PrivateRoute><Dashboard /></PrivateRoute>
+        } />
+
+        <Route path="/favoris" element={
+          <PrivateRoute><Favoris /></PrivateRoute>
+        } /> annonces notification parametre
+
+        <Route path="/annonces" element={
+          <PrivateRoute><Annonces /></PrivateRoute>
+        } />
+        <Route path="/notifications" element={
+          <PrivateRoute><Notifications /></PrivateRoute>
+        } />
+        <Route path="/parametres" element={
+          <PrivateRoute><Parametres /></PrivateRoute>
         } />
 
         <Route path="/about" element={

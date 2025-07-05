@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import './maison.css';
-import { motion } from 'framer-motion';
-import { FaHeart } from 'react-icons/fa';
+// import { motion } from 'framer-motion';
+// import { FaHeart } from 'react-icons/fa';
 import head from '../m13.avif';
 
 const servicesData = [
@@ -289,7 +289,7 @@ const generatePDF = (service) => {
               </div>
             </div>
           </div>
-        </section>
+    </section>
 
     <div className="service-container">
 
@@ -298,7 +298,7 @@ const generatePDF = (service) => {
       <div className="card-grid">
         {servicesData.map((item) => {
           // Numéro WhatsApp (exemple, à remplacer par le vrai)
-          const phoneNumber = '237655479301';
+          // const phoneNumber = '237655479301';
 
           // Message WhatsApp personnalisé avec encodage de l’URL
           const message = `Bonjour, je suis intéressé par "${item.title}" situé à ${item.location}. Pouvez-vous me donner plus d'informations ?`;
