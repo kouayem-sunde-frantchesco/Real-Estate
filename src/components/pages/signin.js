@@ -14,7 +14,7 @@ const Signin = () => {
   };
 
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -32,7 +32,7 @@ const Signin = () => {
 
   const validate = () => {
     const errs = {};
-    if (!formData.username.trim()) errs.username = "Nom requis";
+    if (!formData.name.trim()) errs.name = "Nom requis";
     if (!formData.email.trim()) {
       errs.email = "Email requis";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -58,7 +58,7 @@ const handleSubmit = async (e) => {
 
           },
           body: JSON.stringify({
-          username: formData.username,
+          name: formData.name,
           email: formData.email,
           password: formData.password,
         }),
@@ -86,7 +86,7 @@ const handleSubmit = async (e) => {
 
       setSuccess(true);
       setFormData({
-        username: "",
+        name: "",
         email: "",
         password: "",
         confirmPassword: "",
@@ -122,13 +122,13 @@ const handleSubmit = async (e) => {
           <label>Nom d'utilisateur</label>
           <input
             type="text"
-            name="username"
+            name="name"
             placeholder="Entrez votre nom"
-            value={formData.username}
+            value={formData.name}
             onChange={handleChange}
-            className={errors.username ? "input-error" : ""}
+            className={errors.name ? "input-error" : ""}
           />
-          {errors.username && <span className="error">{errors.username}</span>}
+          {errors.name && <span className="error">{errors.name}</span>}
         </div>
 
         <div className="form-group">
