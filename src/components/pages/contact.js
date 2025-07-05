@@ -18,6 +18,8 @@ function Contact() {
 
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState("");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -37,17 +39,20 @@ function Contact() {
     const validationErrors = validate();
     setErrors(validationErrors);
     setSuccess(false);
+    setServerError("");
 
     if (Object.keys(validationErrors).length === 0) {
       try {
+        setLoading(true);
         const response = await fetch("http://localhost:4000/avis", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form), // ✅ correction ici
+          body: JSON.stringify(form),
         });
 
         if (!response.ok) {
-          throw new Error("Erreur lors de l'envoi");
+          const errData = await response.json();
+          throw new Error(errData.error || "Erreur lors de l'envoi");
         }
 
         const data = await response.json();
@@ -55,8 +60,10 @@ function Contact() {
         setSuccess(true);
         setForm({ name: "", email: "", message: "" });
       } catch (error) {
-        console.error("Erreur : ", error);
-        setSuccess(false);
+        console.error("Erreur :", error);
+        setServerError(error.message || "Erreur inattendue");
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -146,11 +153,19 @@ function Contact() {
               <span className="error">{errors.message}</span>
             )}
 
-            <button type="submit">Envoyer</button>
+            <button type="submit" disabled={loading}>
+              {loading ? "Envoi en cours..." : "Envoyer"}
+            </button>
 
             {success && (
               <p className="success-msg">
                 ✅ Votre message a été envoyé avec succès !
+              </p>
+            )}
+
+            {serverError && (
+              <p className="error-msg">
+                ❌ Une erreur est survenue : {serverError}
               </p>
             )}
           </form>
