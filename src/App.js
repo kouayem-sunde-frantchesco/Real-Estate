@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import Dashboard from './components/pages/dashboard';
+import Dashboard from "./components/pages/dashboard.js";
 import Navbar from './components/pages/navbar';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/pages/home';
@@ -35,6 +35,7 @@ function App() {
         <Route path="/" element={
           <PrivateRoute><Home /></PrivateRoute>
         } />
+
         <Route path="/dashboard" element={
           <PrivateRoute><Dashboard /></PrivateRoute>
         } />
@@ -42,6 +43,7 @@ function App() {
         <Route path="/about" element={
           <PrivateRoute><About /></PrivateRoute>
         } />
+
         <Route path="/contact" element={
           <PrivateRoute><Contact /></PrivateRoute>
         } />
@@ -53,15 +55,19 @@ function App() {
         <Route path="/service/appartement" element={
           <PrivateRoute><Appartement /></PrivateRoute>
         } />
+
         <Route path="/service/chambre" element={
           <PrivateRoute><Chambre /></PrivateRoute>
         } />
+
         <Route path="/service/maison" element={
           <PrivateRoute><Maison /></PrivateRoute>
         } />
+
         <Route path="/service/studio" element={
           <PrivateRoute><Studio /></PrivateRoute>
         } />
+
         <Route path="/service/terrain" element={
           <PrivateRoute><Terrain /></PrivateRoute>
         } />

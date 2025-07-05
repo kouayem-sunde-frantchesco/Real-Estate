@@ -337,3 +337,38 @@ box-shadow: #007BFF;
   flex: 1;
   min-width: 160px;
 }
+
+.whatsapp-button,
+.email-button {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Bouton WhatsApp vert */
+.whatsapp-button {
+  background-color: #25d366;
+  margin-right: 10px;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe5b;
+}
+
+/* Bouton Email bleu */
+.email-button {
+  background-color: #0072c6;
+    margin-right: 10px;
+}
+
+.email-button:hover {
+  background-color: #005a9e;
+}

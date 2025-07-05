@@ -208,14 +208,15 @@ const Chambre = () => {
   padding: '100px 0',
 };
 
-const [visitModalOpen, setVisitModalOpen] = useState(false);
-const [visitForm, setVisitForm] = useState({
-  name: '',
-  email: '',
-  date: '',
-  time: '',
-  property: null,
-});
+  // fonction modal pour planifier la visite
+  const [visitModalOpen, setVisitModalOpen] = useState(false);
+  const [visitForm, setVisitForm] = useState({
+    name: '',
+    email: '',
+    date: '',
+    time: '',
+    property: null,
+  });
 
 const handleVisitChange = (e) => {
   const { name, value } = e.target;
