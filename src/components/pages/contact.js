@@ -76,9 +76,7 @@ function Contact() {
             <div className="col-xl-7 col-lg-9 col-md-12">
               <div className="fpc-capstion text-center my-4">
                 <div className="fpc-captions">
-                  <h1 className="title-head">
-                    Bienvenue chez <strong>Luxis Home Camer</strong>
-                  </h1>
+                  <h1 className="title-head">Bienvenue chez Luxis Home Camer</h1>
                   <p className="text-light">
                     Luxis Home Camer est votre plateforme en ligne dédiée à
                     l’achat, la vente et la location de biens immobiliers au

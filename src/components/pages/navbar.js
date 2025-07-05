@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes, FaSearch, FaGlobe } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import Dashboard from './dashboard';
 import '../pages/navbar.css';
 
 const Navbar = ({ onHamburgerClick }) => {
+  const [dashboardOpen, setDashboardOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -46,13 +48,25 @@ const Navbar = ({ onHamburgerClick }) => {
   };
 
   return (
-    <>
+    <>     
       <div className="nav-container">
-        <div>
+
+    <Dashboard open={dashboardOpen} onClose={() => setDashboardOpen(false)} />
+{/* dashboard */}
+        <div className="nav-left">
+          <button className="dashboard-toggle" onClick={() => setDashboardOpen(true)}>
+            <FaBars />
+          </button>
           <Link to="/" className="nav-logo">
             <img src="../images/luxis home camer.png" alt="logo" />
           </Link>
         </div>
+
+        {/* <div>
+          <Link to="/" className="nav-logo">
+            <img src="../images/luxis home camer.png" alt="logo" />
+          </Link>
+        </div> */}
 
         <div className="nav-links">
           <Link to="/" className="nav-link">{t('home')}</Link>
@@ -76,7 +90,7 @@ const Navbar = ({ onHamburgerClick }) => {
           </div>
 
           <Link to="/contact" className="nav-link">{t('contact')}</Link>
-          <Link to="/dashboard" className="nav-link">{t('dashboard')}</Link>
+          {/* <Link to="/dashboard" className="nav-link">{t('dashboard')}</Link> */}
 
 
           {!user ? (
@@ -85,8 +99,10 @@ const Navbar = ({ onHamburgerClick }) => {
             </>
           ) : (
             <>
-              <span className="nav-link">👤 {user.username}</span>
-              <button onClick={handleLogout} className="logout-btn">Se déconnecter</button>
+              <button onClick={handleLogout} className="logout-btn">              
+                <span className="nav-link">👤 {user.username}</span>
+                 Déconnecter
+              </button>
             </>
           )}
 

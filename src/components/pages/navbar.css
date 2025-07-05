@@ -2,6 +2,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  font-size: 13px;;
 }
 
 /* NAVBAR */
@@ -62,19 +63,36 @@ color: white;
   color: white;
 }
 
+/* logout css */
+.logout-btn{
+  font-size: 13px;
+  background-color: rgb(223, 145, 0);
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
+}
+
+.logout-btn:hover{
+  background-color: rgb(223, 145, 0);
+  color: #ffffff;
+}
+
 /* Langue + icône */
 .language-switch {
   display: flex;
   align-items: center;
-  gap: 5px;
-  background: none;
+  font-size: 13px;
+  background-color: rgb(223, 145, 0);
+  color: black;
   border: none;
   cursor: pointer;
-  color:black;
 }
 
 .language-switch:hover {
   color: #ffffff;
+  font-size: 13px;
+  background-color: rgb(223, 145, 0);
+  
 }
 
 /* Barre de recherche */
@@ -222,4 +240,19 @@ color: white;
   .hamburger {
     display: block;
   }
+}
+
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard-toggle {
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
 }
