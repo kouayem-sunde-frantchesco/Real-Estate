@@ -372,3 +372,18 @@ box-shadow: #007BFF;
 .email-button:hover {
   background-color: #005a9e;
 }
+
+
+/* css du formulaire des informations du client */
+.contract-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.contract-form input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

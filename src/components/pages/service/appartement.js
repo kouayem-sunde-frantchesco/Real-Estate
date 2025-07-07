@@ -195,6 +195,20 @@ const Appartement = () => {
     padding: '100px 0',
   };
 
+  // formulaire pour les informations de contrat du client
+const [clientInfo, setClientInfo] = useState({
+  fullName: '',
+  email: '',
+  phone: '',
+  address: ''
+});
+
+const handleClientInfoChange = (e) => {
+  const { name, value } = e.target;
+  setClientInfo((prev) => ({ ...prev, [name]: value }));
+};
+
+
   // fonction modal pour planifier la visite
   const [visitModalOpen, setVisitModalOpen] = useState(false);
   const [visitForm, setVisitForm] = useState({
@@ -391,6 +405,10 @@ const Appartement = () => {
                 }} className="visit-button">
                   Planifier une visite
                 </button>
+
+
+{/* formulaire */}
+
 
                 <button onClick={() => generatePDF(item)} className="btn-generate">
                   📄 Obténir le contrat

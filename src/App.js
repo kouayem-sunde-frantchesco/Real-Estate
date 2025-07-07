@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import Dashboard from "./components/pages/dashboard.js";
 import Navbar from './components/pages/navbar';

@@ -9,6 +9,7 @@
   padding: 20px;
   z-index: 1000;
   transition: left 0.3s ease-in-out;
+  overflow-y: auto;
 }
 
 .sidebar-dashboard.open {
@@ -41,10 +42,53 @@
   padding: 10px;
   border-radius: 8px;
   transition: background 0.3s;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInItem 0.4s forwards;
+}
+
+.sidebar-dashboard.animate .sidebar-menu .sidebar-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInItem 0.4s forwards;
+}
+
+/* Animation progressive des items */
+.sidebar-dashboard.open .sidebar-menu .sidebar-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.sidebar-dashboard.open .sidebar-menu .sidebar-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.sidebar-dashboard.open .sidebar-menu .sidebar-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.sidebar-dashboard.open .sidebar-menu .sidebar-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.sidebar-dashboard.open .sidebar-menu .sidebar-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.sidebar-dashboard.open .sidebar-menu .sidebar-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.sidebar-dashboard.open .sidebar-menu .sidebar-item:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.sidebar-dashboard.open .sidebar-menu .sidebar-item:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInItem {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .sidebar-dashboard .sidebar-item:hover {
-  background-color: rgb(243, 171, 37);
+  background-color: white;
+  color: black;
 }
 
 .sidebar-dashboard .logout {
@@ -56,6 +100,22 @@
   cursor: pointer;
 }
 
-.img{
- margin-bottom: 20px;
+.img {
+  margin-bottom: 20px;
+}
+
+.sidebar-item .logout {
+  margin-top: auto;
+  color: #f44336;
+}
+
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
