@@ -30,7 +30,7 @@ const Annonces = () => {
     </section>
 
       <h2>📢 Mes Annonces</h2>
-      <p>Voici la liste des annonces que vous avez postées.</p>
+      <p>Voici la liste des annonces disponibles.</p>
       {/* Tu peux ici afficher les annonces depuis l'API */}
     </div>
   );

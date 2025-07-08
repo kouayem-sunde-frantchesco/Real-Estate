@@ -21,6 +21,8 @@ import Favoris from './components/pages/favoris';
 import Annonces from './components/pages/annonces';
 import Notifications from './components/pages/notifications';
 import Parametres from "./components/pages/parametres.js";
+import UserInfoModal from "./components/pages/UserInfoModal.js";
+import RendezVous from "./components/pages/rendez-vous.js";
 import Vehicule from "./components/pages/vehicule/vehicule";
 import ScrollToTop from './components/ScrollToTop.js';
 import Footer from './components/pages/footer';
@@ -57,6 +59,10 @@ function App() {
         } />
         <Route path="/parametres" element={
           <PrivateRoute><Parametres /></PrivateRoute>
+        } />
+
+        <Route path="/rendez-vous" element={
+          <PrivateRoute><RendezVous /></PrivateRoute>
         } />
 
         <Route path="/about" element={

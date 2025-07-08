@@ -8,7 +8,7 @@ import head from '../m13.avif';
 // Numéro WhatsApp du contact (format international, sans espace ni +)
 const whatsappNumber = '237655479301'; // modifier par ton numéro réel
 const whatsappMessage = encodeURIComponent("Bonjour, je suis intéressé par le bien immobilier que vous proposez.");
-const whatsappLink = `https://wa.me/${237655479301}?text=${'Bonjour Bienvenue a SF immobilier'}`;
+const whatsappLink = `https://wa.me/${237655479301}?text=${'Bonjour, je suis intéressé par le bien immobilier que vous proposez'}`;
 
 const servicesData = [
   {

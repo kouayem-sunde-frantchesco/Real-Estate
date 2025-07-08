@@ -1,21 +1,46 @@
-import React from 'react';
-import body from "../m13.avif";
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import './parametres.css';
+// import body from "../m13.avif";
 
 const Parametres = () => {
 
-    const sectionStyleHead = {
-    backgroundImage: `url(${body})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    padding: "100px 0",
+  // const sectionStyleHead = {
+  //   backgroundImage: `url(${body})`,
+  //   backgroundSize: "cover",
+  //   backgroundPosition: "center",
+  //   padding: "100px 0",
+  // };
+
+  const { i18n, t } = useTranslation();
+  const [theme, setTheme] = useState('light');
+  const [langue, setLangue] = useState(i18n.language || 'fr');
+
+  // Charger le thème enregistré (si stocké)
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    setTheme(savedTheme);
+  }, []);
+
+  const handleThemeChange = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    setTheme(newTheme);
+  };
+
+  const handleLangueChange = (e) => {
+    const newLang = e.target.value;
+    i18n.changeLanguage(newLang);
+    setLangue(newLang);
   };
 
   return (
-    <div className="dashboard-content">
-
+    <div className="parametres-container">
 
   {/* section image */}
-    <section className="head"  style={sectionStyleHead}  >
+    {/* <section className="head"  style={sectionStyleHead}  >
           <div class="container">
             <div class="row align-items-center justify-content-center">
               <div class="col-xl-7 col-lg-9 col-md-12">
@@ -27,13 +52,27 @@ const Parametres = () => {
               </div>
             </div>
           </div>
-    </section>
+    </section> */}
 
-      <h2>⚙️ Paramètres</h2>
-      <p>Gérez ici vos informations personnelles, préférences et sécurité.</p>
-      {/* Ajoute un formulaire pour modifier email, mot de passe, etc. */}
+      <h2>{t('Paramètres')}</h2>
+
+      <div className="param-option">
+        <label>{t('Langue')}:</label>
+        <select value={langue} onChange={handleLangueChange}>
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+
+      <div className="param-option">
+        <label>{t('Thème')}:</label>
+        <button onClick={handleThemeChange}>
+          {theme === 'light' ? t('Passer en mode sombre') : t('Passer en mode clair')}
+        </button>
+      </div>
     </div>
   );
 };
 
 export default Parametres;
+

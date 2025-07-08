@@ -1,0 +1,29 @@
+/* parametres.css */
+
+.parametres-container {
+  padding: 2rem;
+  max-width: 500px;
+  margin: auto;
+}
+
+.param-option {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+select, button {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Dark/light theme via data-theme */
+:root[data-theme='dark'] {
+  background-color: #121212;
+  color: white;
+}
+
+:root[data-theme='light'] {
+  background-color: white;
+  color: black;
+}
