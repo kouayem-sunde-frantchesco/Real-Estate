@@ -5,17 +5,26 @@ import {
   FaUser, FaClipboardList, FaCalendarCheck, FaCommentDots
 } from 'react-icons/fa';
 import './dashboard.css';
+import UserInfoModal from './UserInfoModal'; // 👈 Import du modal
 
 const Dashboard = ({ open, onClose }) => {
   const navigate = useNavigate();
 
   const [animateMenu, setAnimateMenu] = useState(false);
+  const [showUserModal, setShowUserModal] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (open) {
       setTimeout(() => setAnimateMenu(true), 50);
     } else {
       setAnimateMenu(false);
+    }
+
+    // Charger les infos utilisateur
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
     }
   }, [open]);
 
@@ -30,9 +39,9 @@ const Dashboard = ({ open, onClose }) => {
       <button className="close-btn" onClick={onClose}>×</button>
 
       <div className={`sidebar-menu ${animateMenu ? 'animate' : ''}`}>
-        <Link to="/Infos" className="sidebar-item">
+        <button className="sidebar-item" onClick={() => setShowUserModal(true)}>
           <FaUser /> Mes infos
-        </Link>
+        </button>
 
         <Link to="/favoris" className="sidebar-item">
           <FaHeart /> Favoris
@@ -62,6 +71,13 @@ const Dashboard = ({ open, onClose }) => {
           <FaSignOutAlt /> Déconnexion
         </button>
       </div>
+
+      {/* 👇 Modal Mes Infos */}
+      <UserInfoModal
+        isOpen={showUserModal}
+        onClose={() => setShowUserModal(false)}
+        user={user}
+      />
     </div>
   );
 };
