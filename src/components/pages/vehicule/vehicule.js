@@ -23,8 +23,8 @@ const servicesData = [
   },
   {
     id: 2,
-    type: 'video',
-    src: '/video/m2.mp4',
+    type: 'image',
+    src: '/images/moto/moto1.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -37,15 +37,15 @@ const servicesData = [
     type: 'image',
     src: '/images/moto/moto2.avif',
     title: 'Mitsubishi Pajero ',
-    price: '75 000 000 FCFA',
+    price: '10 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
     description: 'Maison 4 chambres, 3 douches, salon spacieux.',
     statut: "A louer"
   },
   {
     id: 4,
-    type: 'video',
-    src: '/video/m2.mp4',
+    type: 'image',
+    src: '/images/moto/moto4.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -65,8 +65,8 @@ const servicesData = [
   },
   {
     id: 6,
-    type: 'video',
-    src: '/video/m2.mp4',
+    type: 'image',
+    src: '/images/moto/moto6.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -86,8 +86,8 @@ const servicesData = [
   },
   {
     id: 8,
-    type: 'video',
-    src: '/video/m2.mp4',
+    type: 'image',
+    src: '/images/moto/moto9.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
@@ -107,7 +107,7 @@ const servicesData = [
   },
   {
     id: 10,
-    type: 'video',
+    type: 'image',
     src: '/images/moto/moto9.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
@@ -128,7 +128,7 @@ const servicesData = [
   },
   {
     id: 12,
-    type: 'video',
+    type: 'image',
     src: '/images/moto/moto13.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
@@ -212,7 +212,7 @@ const servicesData = [
   },
   {
     id: 20,
-    type: 'video',
+    type: 'image',
     src: '/images/voiture/voiture2.avif',
     title: 'KAWASAKI KLE 500',
     price: '350 000 FCFA/mois',
