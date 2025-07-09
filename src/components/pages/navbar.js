@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaBars, FaTimes, FaSearch, FaGlobe } from 'react-icons/fa';
+import { FaBars, FaTimes, FaGlobe } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import Dashboard from './dashboard';
 import '../pages/navbar.css';
@@ -9,7 +9,7 @@ const Navbar = ({ onHamburgerClick }) => {
   const [dashboardOpen, setDashboardOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  // const [searchTerm, setSearchTerm] = useState('');
   const [user, setUser] = useState(null);
 
   const { t, i18n } = useTranslation();
@@ -29,7 +29,7 @@ const Navbar = ({ onHamburgerClick }) => {
     i18n.changeLanguage(newLang);
   };
 
-  const [isDarkMode, setDarkMode] = useState(() => {
+  const [isDarkMode] = useState(() => {
     return localStorage.getItem('theme') === 'dark';
   });
 
@@ -38,7 +38,7 @@ const Navbar = ({ onHamburgerClick }) => {
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
-  const toggleDarkMode = () => setDarkMode((prev) => !prev);
+  // const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
   const handleLogout = () => {
     localStorage.removeItem("token");

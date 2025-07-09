@@ -30,8 +30,8 @@ const Footer = () => {
           <h4>À propos de nous</h4>
           <ul>
             <li><Link to="/about">Qui sommes-nous ?</Link></li>
-            <li><Link to="/signin">Créer un compte</Link></li>
-            <li><Link to={`/service/maison`}>Catégorie</Link></li>
+            {/* <li><Link to="/signin">Créer un compte</Link></li>
+            <li><Link to={`/service/maison`}>Catégorie</Link></li> */}
           </ul>
         </div>
 
@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
 
 {/* voitures/motos */}
-        <div className="footer-column">
+        {/* <div className="footer-column">
           <h4>Besoin de</h4>
           <ul>
             <li><Link to="../vehicule/vehicule">Voitures</Link></li>
@@ -56,7 +56,7 @@ const Footer = () => {
             <li><Link to="../vehicule/vehicule">Camions</Link></li>
             <li><Link to="../vehicule/vehicule">Tricycle</Link></li>
           </ul>
-        </div>
+        </div> */}
 
         {/* Offres Premium */}
         <div className="footer-column">

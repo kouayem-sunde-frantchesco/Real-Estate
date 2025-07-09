@@ -22,6 +22,8 @@ import Annonces from './components/pages/annonces';
 import Notifications from './components/pages/notifications';
 import Parametres from "./components/pages/parametres.js";
 import UserInfoModal from "./components/pages/UserInfoModal.js";
+import Classique from "./components/pages/classique.js";
+import Vip from "./components/pages/vip.js";
 import RendezVous from "./components/pages/rendez-vous.js";
 import Vehicule from "./components/pages/vehicule/vehicule";
 import ScrollToTop from './components/ScrollToTop.js';
@@ -74,6 +76,14 @@ function App() {
         } />
         <Route path="/categories" element={
           <PrivateRoute><Categorie /></PrivateRoute>
+        } />
+
+        <Route path="/classique" element={
+          <PrivateRoute><Classique /></PrivateRoute>
+        } />
+
+        <Route path="/vip" element={
+          <PrivateRoute><Vip /></PrivateRoute>
         } />
 
         {/* ✅ Pages service protégées */}

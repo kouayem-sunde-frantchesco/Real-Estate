@@ -32,7 +32,7 @@ const Home = () => {
 
   const categories4 = [
     { name: 'Maisons', image: '/images/m7.avif' },
-    { name: 'Appartements', image: '/images/hall2.avif' },
+    { name: 'Appartements meublé', image: '/images/hall2.avif' },
     { name: 'Studios', image: '/images/m10.avif' },
     { name: 'Chambres', image: '/images/c8.jpg' },
     { name: 'Terrains', image: '/images/t4.avif' },
@@ -95,18 +95,18 @@ const Home = () => {
       }}>
         <h1>Trouvez votre prochain logement facilement</h1>
         <p>Explorez notre sélection de biens immobiliers dans tout le pays.</p>
-        <Link to="/categorie" className="cta-button">Offres Classiques</Link>
-        <Link to="/categorie" className="cta-button-vip">Offres VIP</Link>
-        <Link to="/categorie" className="cta-button-premium">Offres Premium</Link>
-        <Link to="/vehicule/vehicule" className="cta-button-vip">Autres Catégories</Link>
+        <Link to="/classique" className="cta-button">Offres Classiques</Link>
+        <Link to="/vip" className="cta-button-vip">Offres VIP</Link>
+        {/* <Link to="/categorie" className="cta-button-premium">Offres Premium</Link> */}
+        <Link to="/vehicule/vehicule" className="cta-button-premium">Autres Services</Link>
         <a href="https://wa.me/237655479301" className="cta-button" id="support" title="Service Client">
           Service Client
         </a>
       </header>
 
-      {renderSlider("Offres Classiques", categories1)}
-      {renderSlider("Offres VIP", categories3)}
-      {renderSlider("Offres Premium", categories4)}
+      {renderSlider("Nos Offres", categories1)}
+      {renderSlider("Nos Offres", categories3)}
+      {renderSlider("Nos Offres", categories4)}
 
       <section className="info-section">
         <h2>Pourquoi choisir notre plateforme ?</h2>

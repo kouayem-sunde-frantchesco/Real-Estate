@@ -339,6 +339,16 @@ const Vehicule = () => {
           </div>
         </div>
       )}
+
+      <section className="info-section">
+        <h2>Pourquoi choisir notre plateforme ?</h2>
+        <ul>
+          <li>✔️ Grande sélection de biens immobiliers</li>
+          <li>✔️ Plateforme sécurisée et facile à utiliser</li>
+          <li>✔️ Contact direct avec les vendeurs et propriétaires</li>
+        </ul>
+      </section>
+
     </div>
 </>
 

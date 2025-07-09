@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState} from 'react';
+// import { Link, useNavigate } from 'react-router-dom';
+import {FaMapMarkerAlt } from 'react-icons/fa';
 import "./contact.css";
 import body from "../m13.avif";
 
@@ -92,7 +94,7 @@ function Contact() {
       <div className="contact-page">
         <div className="contact-info">
           <h2>Contactez-nous</h2>
-          <p>📍 Akwa Bali</p>
+          <p><FaMapMarkerAlt />  Bonanjo en Face BGFI Bank</p>
           <p>📞 + 237 655-479-301</p>
           <a href="https://real-estate-9hbg.vercel.app">
             <p>Notre site Web: Luxis Home Camer</p>
@@ -112,7 +114,7 @@ function Contact() {
           </div>
 
           <div className="map">
-            <img src="./images/c9.jpg" alt="carte" />
+            <img src="../images/luxis home camer.png" alt="carte" />
           </div>
         </div>
 
@@ -168,6 +170,15 @@ function Contact() {
             )}
           </form>
         </div>
+
+      <section className="info-section">
+        <h2>Pourquoi choisir notre plateforme ?</h2>
+        <ul>
+          <li>✔️ Grande sélection de biens immobiliers</li>
+          <li>✔️ Plateforme sécurisée et facile à utiliser</li>
+          <li>✔️ Contact direct avec les vendeurs et propriétaires</li>
+        </ul>
+      </section>
       </div>
     </>
   );

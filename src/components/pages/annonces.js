@@ -32,6 +32,16 @@ const Annonces = () => {
       <h2>📢 Mes Annonces</h2>
       <p>Voici la liste des annonces disponibles.</p>
       {/* Tu peux ici afficher les annonces depuis l'API */}
+
+      <section className="info-section">
+        <h2>Pourquoi choisir notre plateforme ?</h2>
+        <ul>
+          <li>✔️ Grande sélection de biens immobiliers</li>
+          <li>✔️ Plateforme sécurisée et facile à utiliser</li>
+          <li>✔️ Contact direct avec les vendeurs et propriétaires</li>
+        </ul>
+      </section>
+
     </div>
   );
 };

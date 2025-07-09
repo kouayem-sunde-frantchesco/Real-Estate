@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import './appartement.css';
+import './classique.css';
 import head from '../m13.avif';
 
 const whatsappLink = `https://wa.me/237655479301?text=${encodeURIComponent("Bonjour Bienvenue à Luxis Home Camer immobilier, que puis-je faire pour vous ?")}`;
@@ -11,26 +11,30 @@ const servicesData = [
     type: 'image',
     src: '/images/image1.jpg',
     title: 'Maison moderne',
-    price: '75 000 000 FCFA',
+    price: '120 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
-    label: 'VIP',
-    rooms: 4,
-    bathrooms: 3,
-    size: 200, // superficie en m²
-    furnished: true,
-    available: true,
-    propertyType: 'villa'
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison moderne'
   },
   {
     id: 2,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
-    price: '350 000 FCFA/mois',
+    title: 'Appartement',
+    price: '400 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
-    label: 'VIP'
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 500, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'Appartemet'
   },
 
   {
@@ -38,38 +42,61 @@ const servicesData = [
     type: 'image',
     src: '/images/image7.jpg',
     title: 'Maison moderne',
-    price: '75 000 000 FCFA',
+    price: '100 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
-    label: 'PREMIUM'
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison'
   },
+
   {
     id: 4,
     type: 'video',
     src: '/video/m2.mp4',
-    title: 'Appartement meublé',
-    price: '350 000 FCFA/mois',
+    title: 'Studio',
+    price: '200 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison'
   },
 
   {
     id: 5,
     type: 'image',
     src: '/images/hall6.avif',
-    title: 'Maison moderne',
-    price: '75 000 000 FCFA',
+    title: 'Studio moderne',
+    price: '175 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
-  },
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison'  },
   {
     id: 6,
     type: 'video',
     src: '/video/m2.mp4',
     title: 'Appartement meublé',
-    price: '350 000 FCFA/mois',
+    price: '650 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison'
   },
 
   {
@@ -77,18 +104,30 @@ const servicesData = [
     type: 'image',
     src: '/images/hall5.avif',
     title: 'Maison moderne',
-    price: '75 000 000 FCFA',
+    price: '90 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison'
   },
   {
     id: 8,
     type: 'video',
     src: '/video/m2.mp4',
     title: 'Appartement meublé',
-    price: '350 000 FCFA/mois',
+    price: '200 000FCFA/mois',
     location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison'
   },
 
   {
@@ -96,9 +135,15 @@ const servicesData = [
     type: 'image',
     src: '/images/hall.avif',
     title: 'Maison moderne',
-    price: '75 000 000 FCFA',
+    price: '75 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison'
   },
   {
     id: 10,
@@ -107,7 +152,13 @@ const servicesData = [
     title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison'
   },
 
   {
@@ -115,18 +166,29 @@ const servicesData = [
     type: 'image',
     src: '/images/h5.avif',
     title: 'Maison moderne',
-    price: '75 000 000 FCFA',
+    price: '75 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700,
+    statut: true,
+    Propriété: 'maison'
   },
   {
     id: 12,
     type: 'video',
     src: '/video/m2.mp4',
     title: 'Appartement meublé',
-    price: '350 000 FCFA/mois',
+    price: '500 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison'
   },
 
   {
@@ -134,9 +196,15 @@ const servicesData = [
     type: 'image',
     src: '/images/h3.avif',
     title: 'Maison moderne',
-    price: '75 000 000 FCFA',
+    price: '65 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison'
   },
   {
     id: 14,
@@ -145,7 +213,13 @@ const servicesData = [
     title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 3,
+    superficie: 700, // superficie en m²
+    statut: false,
+    // disponibilit2: true,
+    Propriété: 'Appartement meublé'
   },
 
   {
@@ -153,18 +227,30 @@ const servicesData = [
     type: 'image',
     src: '/images/h4.avif',
     title: 'Maison moderne',
-    price: '75 000 000 FCFA',
+    price: '300 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'salon moins spacieux.',
+    chambre: 2,
+    douche: 3,
+    superficie: 250, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'maison moderne'
   },
   {
     id: 16,
     type: 'video',
     src: '/video/m2.mp4',
     title: 'Appartement meublé',
-    price: '350 000 FCFA/mois',
+    price: '1 200 0000 FCFA/mois',
     location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
+    description: 'salon spacieux.',
+    chambre: 4,
+    douche: 4,
+    superficie: 900, // superficie en m²
+    statut: true,
+    // disponibilit2: true,
+    Propriété: 'Appartemet meublés'
   },
 
   {
@@ -174,7 +260,12 @@ const servicesData = [
     title: 'Maison moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    chambre: 2,
+    douche: 1,
+    superficie: 700, // superficie en m²
+    statut: false,
+    // disponibilit2: true,
+    Propriété: 'maison moderne'
   },
   {
     id: 18,
@@ -183,11 +274,17 @@ const servicesData = [
     title: 'Appartement meublé',
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
-    description: 'Appartement 2 chambres avec cuisine équipée.',
+    description: 'salon spacieux.',
+    chambre: 3,
+    douche: 3,
+    superficie: 600, // superficie en m²
+    statut: false,
+    // disponibilit2: true,
+    Propriété: 'Appartement meublé'
   },
 ];
 
-const Appartement = () => {
+const Classique = () => {
   const sectionStyleHead = {
     backgroundImage: `url(${head})`,
     backgroundSize: 'cover',
@@ -350,7 +447,7 @@ const handleClientInfoChange = (e) => {
       </section>
 
       <div className="service-container">
-        <h2>Nos Services Immobiliers</h2>
+        <h2 className="">Services Classiques</h2>
 
         <div className="card-grid">
           {currentItems.map((item) => {
@@ -408,8 +505,6 @@ const handleClientInfoChange = (e) => {
 
 
 {/* formulaire */}
-
-
                 <button onClick={() => generatePDF(item)} className="btn-generate">
                   📄 Obténir le contrat
                 </button>
@@ -458,13 +553,13 @@ const handleClientInfoChange = (e) => {
               <p><strong>Prix :</strong> {selectedService.price}</p>
               <p><strong>Lieu :</strong> {selectedService.location}</p>
               <p><strong>Description :</strong> {selectedService.description}</p>
-              <p><strong>Label :</strong> {selectedService.label}</p>
-              <p><strong>Rooms :</strong> {selectedService.rooms}</p>
-              <p><strong>Bathrooms :</strong> {selectedService.bathrooms}</p>
-              <p><strong>Size :</strong> {selectedService.size}</p>
-              <p><strong>Furnished :</strong> {selectedService.furnished ? 'Oui' : 'Non'}</p>
-              <p><strong>Available :</strong> {selectedService.available ? 'Oui' : 'Non'}</p>
-              <p><strong>PropertyType :</strong> {selectedService.propertyType}</p>
+              {/* <p><strong>Label :</strong> {selectedService.label}</p> */}
+              <p><strong>chambre :</strong> {selectedService.chambre}</p>
+              <p><strong>Douches :</strong> {selectedService.douche}</p>
+              <p><strong>Superficie :</strong> {selectedService.superficie}</p>
+              <p><strong>Statut :</strong> {selectedService.statut ? 'Oui' : 'Non'}</p>
+              {/* <p><strong>Available :</strong> {selectedService.available ? 'Oui' : 'Non'}</p> */}
+              <p><strong>Type de propriété :</strong> {selectedService.Propriété}</p>
               <button onClick={() => setSelectedService(null)}>Fermer</button>
             </div>
           </div>
@@ -487,9 +582,18 @@ const handleClientInfoChange = (e) => {
         )}
 
         <div ref={loadMoreRef} style={{ height: '20px' }}></div>
+           <section className="info-section">
+        <h2>Pourquoi choisir notre plateforme ?</h2>
+        <ul>
+          <li>✔️ Grande sélection de biens immobiliers</li>
+          <li>✔️ Plateforme sécurisée et facile à utiliser</li>
+          <li>✔️ Contact direct avec les vendeurs et propriétaires</li>
+        </ul>
+      </section>
+     
       </div>
     </>
   );
 };
 
-export default Appartement;
+export default Classique;

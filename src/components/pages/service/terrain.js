@@ -208,6 +208,17 @@ const Terrain = () => {
   padding: '100px 0',
 };
 
+const [buyerInfo, setBuyerInfo] = useState({
+  nom: '',
+  email: '',
+  telephone: '',
+  adresse: '',
+});
+
+const [contractModalOpen, setContractModalOpen] = useState(false);
+const [contractService, setContractService] = useState(null);
+
+
 const [visitModalOpen, setVisitModalOpen] = useState(false);
 const [visitForm, setVisitForm] = useState({
   name: '',
@@ -232,42 +243,79 @@ const handleVisitSubmit = (e) => {
   setVisitModalOpen(false);
 };
 
-const generatePDF = (service) => {
+// fonction pour generer le PDF du contrat de bail
+const generatePDF = async (service, buyer) => {
+  // Génération du PDF
   const doc = new jsPDF();
 
-  doc.setFontSize(18);
-  doc.text("Contrat de Location / Vente Immobilier", 14, 22);
-
+  doc.setFontSize(16);
+  doc.text("CONTRAT DE VENTE D'UN TERRAIN", 70, 20);
   doc.setFontSize(12);
-  doc.text(`Nom du bien: ${service.title}`, 14, 40);
-  doc.text(`Lieu: ${service.location}`, 14, 50);
-  doc.text(`Prix: ${service.price}`, 14, 60);
-  doc.text(`Description: ${service.description}`, 14, 70);
-  doc.text(`Date: ${new Date().toLocaleDateString()}`, 14, 80);
+  doc.text("Entre les soussignés :", 14, 30);
+  doc.text("Vendeur :", 14, 40);
+  doc.text("Nom : Monsieur Jean Dupont", 20, 46);
+  doc.text("Adresse : BP 12345 Yaoundé, Cameroun", 20, 52);
+  doc.text("Téléphone : +237 699 00 00 00", 20, 58);
+
+  doc.text("Acheteur :", 14, 70);
+  doc.text(`Nom : ${buyer.nom}`, 20, 76);
+  doc.text(`Adresse : ${buyer.adresse}`, 20, 82);
+  doc.text(`Téléphone : ${buyer.telephone}`, 20, 88);
+  doc.text(`Email : ${buyer.email}`, 20, 94);
+
+  doc.text("Article 1 : Objet du contrat", 14, 106);
+  doc.text("Le présent contrat a pour objet la vente du terrain ci-dessous :", 20, 112);
+
+  doc.text(`- Désignation : ${service.title}`, 20, 118);
+  doc.text(`- Lieu : ${service.location}`, 20, 124);
+  doc.text(`- Superficie : 500 m² (exemple)`, 20, 130);
+  doc.text(`- Prix de vente : ${service.price}`, 20, 136);
 
   autoTable(doc, {
-    startY: 90,
-    head: [['Clause', 'Description']],
+    startY: 146,
+    head: [['Clause', 'Détail']],
     body: [
-      ['Durée', 'Ce contrat est valable pour une période de 12 mois renouvelable.'],
-      ['Paiement', 'Le paiement doit être effectué mensuellement avant le 7 de chaque mois.'],
-      ['Engagement', 'Le locataire s’engage à respecter les lieux.'],
+      ['Transfert de propriété', 'Effectif après signature devant notaire et paiement intégral.'],
+      ['Garantie', 'Le vendeur certifie que le terrain est libre de toute hypothèque ou litige.'],
+      ['Frais', 'À la charge de l’acheteur sauf accord contraire.'],
+      ['Paiement', 'Versement de 50% à la signature, solde à la mutation.'],
+      ['Résiliation', 'En cas de manquement, le contrat peut être résilié avec conséquences.'],
     ],
   });
 
-  // Position après la table
-  const finalY = doc.lastAutoTable.finalY || 100;
+  const finalY = doc.lastAutoTable.finalY || 180;
+  doc.text("Fait à Yaoundé, le " + new Date().toLocaleDateString(), 14, finalY + 10);
+  doc.text("Signatures :", 14, finalY + 20);
+  doc.text("Vendeur :", 20, finalY + 30);
+  doc.line(40, finalY + 30, 100, finalY + 30);
+  doc.text("Acheteur :", 120, finalY + 30);
+  doc.line(145, finalY + 30, 190, finalY + 30);
 
-  // Ajouter espace signature client
-  doc.text("Signature du client :", 14, finalY + 20);
-  doc.line(14, finalY + 25, 90, finalY + 25); // ligne signature client
+  // Génère un Blob à envoyer
+  const pdfBlob = doc.output('blob');
 
-  // Ajouter espace signature agent immobilier
-  doc.text("Signature de l'agent immobilier :", 120, finalY + 20);
-  doc.line(120, finalY + 25, 190, finalY + 25); // ligne signature agent
+  // Prépare FormData
+  const formData = new FormData();
+  formData.append('pdf', pdfBlob, `contrat-${service.title}.pdf`);
+  formData.append('nom', buyer.nom);
+  formData.append('email', buyer.email);
 
-  doc.save(`contrat-${service.title}.pdf`);
+  try {
+    const res = await fetch('http://localhost:4000/contratRoutes', { 
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!res.ok) throw new Error('Erreur serveur');
+
+    alert('Contrat envoyé et sauvegardé avec succès !');
+  } catch (err) {
+    console.error('Erreur envoi contrat:', err);
+    alert('Erreur lors de l’envoi du contrat.');
+  }
 };
+
+
 
 
   // const [likes, setLikes] = useState({});
@@ -297,11 +345,11 @@ const generatePDF = (service) => {
 
   {/* section image */}
     <section className="head"  style={sectionStyleHead}  >
-          <div class="container">
-            <div class="row align-items-center justify-content-center">
-              <div class="col-xl-7 col-lg-9 col-md-12">
-                <div class="fpc-capstion text-center my-4">
-                  <div class="fpc-captions">
+          <div className="container">
+            <div className="row align-items-center justify-content-center">
+              <div className="col-xl-7 col-lg-9 col-md-12">
+                <div classv="fpc-capstion text-center my-4">
+                  <div className="fpc-captions">
                   <h1 className="title-head">Bienvenue chez Luxis Home Camer</h1>                    <p class="text-light">  Luxis Home Camer est votre plateforme en ligne dédiée à l’achat, la vente et la location de biens immobiliers au Cameroun.</p>
                   </div>
                 </div>
@@ -361,9 +409,60 @@ const generatePDF = (service) => {
             </button>
 
 {/* bouton pour avoir le contrat PDF */}
-        <button onClick={() => generatePDF(item)} className="btn-generate">
-          📄 Obténir le contrat
-        </button>
+            <button onClick={() => {
+              setContractService(item);
+              setContractModalOpen(true);
+            }} className="btn-generate">
+              📄 Obtenir le contrat
+            </button>
+
+{/* modal du formulaire acheteur pour le contrat*/}
+{contractModalOpen && (
+  <div className="modal-overlay" onClick={() => setContractModalOpen(false)}>
+    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <h3>Informations de l'acheteur</h3>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            generatePDF(contractService, buyerInfo);
+            setContractModalOpen(false);
+          }}>
+
+        <input
+          type="text"
+          placeholder="Nom complet"
+          value={buyerInfo.nom}
+          onChange={(e) => setBuyerInfo({ ...buyerInfo, nom: e.target.value })}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={buyerInfo.email}
+          onChange={(e) => setBuyerInfo({ ...buyerInfo, email: e.target.value })}
+          required
+        />
+        <input
+          type="tel"
+          placeholder="Téléphone"
+          value={buyerInfo.telephone}
+          onChange={(e) => setBuyerInfo({ ...buyerInfo, telephone: e.target.value })}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Adresse"
+          value={buyerInfo.adresse}
+          onChange={(e) => setBuyerInfo({ ...buyerInfo, adresse: e.target.value })}
+          required
+        />
+
+        <button type="submit" className='btn-contrat'>Obténir le contrat</button>
+      </form>
+    </div>
+  </div>
+)}
+
+
 
           </div>
         ))}
