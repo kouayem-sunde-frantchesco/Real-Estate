@@ -9,11 +9,11 @@ const servicesData = [
   {
     id: 1,
     type: 'image',
-    src: '/images/image1.jpg',
-    title: 'Maison moderne',
+    src: '/images/hall.avif',
+    title: 'Appartement moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'Appartement 4 chambres, 3 douches, salon spacieux.',
     label: 'VIP',
     rooms: 4,
     bathrooms: 3,
@@ -30,18 +30,30 @@ const servicesData = [
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
-    label: 'VIP'
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
 
   {
     id: 3,
     type: 'image',
     src: '/images/image7.jpg',
-    title: 'Maison moderne',
+    title: 'Appartement moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
-    label: 'PREMIUM'
+    description: 'Appartement 4 chambres, 3 douches, salon spacieux.',
+    label: 'PREMIUM',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
   {
     id: 4,
@@ -51,16 +63,30 @@ const servicesData = [
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
 
   {
     id: 5,
     type: 'image',
     src: '/images/hall6.avif',
-    title: 'Maison moderne',
+    title: 'Appartement moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'Appartement 4 chambres, 3 douches, salon spacieux.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
   {
     id: 6,
@@ -70,16 +96,30 @@ const servicesData = [
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
 
   {
     id: 7,
     type: 'image',
     src: '/images/hall5.avif',
-    title: 'Maison moderne',
+    title: 'Appartement moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'Appartement 4 chambres, 3 douches, salon spacieux.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
   {
     id: 8,
@@ -89,16 +129,30 @@ const servicesData = [
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
 
   {
     id: 9,
     type: 'image',
     src: '/images/hall.avif',
-    title: 'Maison moderne',
+    title: 'Appartement moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'Appartement 4 chambres, 3 douches, salon spacieux.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
   {
     id: 10,
@@ -108,16 +162,30 @@ const servicesData = [
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
 
   {
     id: 11,
     type: 'image',
     src: '/images/h5.avif',
-    title: 'Maison moderne',
+    title: 'Appartement moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'Appartement 4 chambres, 3 douches, salon spacieux.',
+    label: 'Premium',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
   {
     id: 12,
@@ -127,16 +195,30 @@ const servicesData = [
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'Premium',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
 
   {
     id: 13,
     type: 'image',
     src: '/images/h3.avif',
-    title: 'Maison moderne',
+    title: 'Appartement moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'Appartement 4 chambres, 3 douches, salon spacieux.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
   {
     id: 14,
@@ -146,16 +228,30 @@ const servicesData = [
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'Premium',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
 
   {
     id: 15,
     type: 'image',
     src: '/images/h4.avif',
-    title: 'Maison moderne',
+    title: 'Appartement moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'Appartement 4 chambres, 3 douches, salon spacieux.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
   {
     id: 16,
@@ -165,16 +261,30 @@ const servicesData = [
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
 
   {
     id: 17,
     type: 'image',
     src: '/images/h2.avif',
-    title: 'Maison moderne',
+    title: 'Appartement moderne',
     price: '75 000 000 FCFA',
     location: 'Douala, Bonamoussadi',
-    description: 'Maison 4 chambres, 3 douches, salon spacieux.',
+    description: 'Appartement 4 chambres, 3 douches, salon spacieux.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
   {
     id: 18,
@@ -184,6 +294,63 @@ const servicesData = [
     price: '350 000 FCFA/mois',
     location: 'Yaoundé, Bastos',
     description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
+  },
+
+    {
+    id: 19,
+    type: 'video',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
+  },
+
+    {
+    id: 20,
+    type: 'video',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
+  },
+    {
+    id: 21,
+    type: 'video',
+    src: '/video/m2.mp4',
+    title: 'Appartement meublé',
+    price: '350 000 FCFA/mois',
+    location: 'Yaoundé, Bastos',
+    description: 'Appartement 2 chambres avec cuisine équipée.',
+    label: 'VIP',
+    rooms: 4,
+    bathrooms: 3,
+    size: 200, // superficie en m²
+    furnished: true,
+    available: true,
+    propertyType: 'villa'
   },
 ];
 

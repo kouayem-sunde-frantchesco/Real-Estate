@@ -66,13 +66,13 @@ const Dashboard = ({ open, onClose }) => {
           <FaUser /> Mes infos
         </Link>
 
-        {/* <Link to="/favoris" className="sidebar-item">
-          <FaHeart /> Favoris
-        </Link> */}
+        <Link to="/vehicule/vehicule" className="sidebar-item">
+          <FaHeart /> Autres Catégories
+        </Link>
 
-        {/* <Link className="sidebar-item" onClick={fetchAnnoncesConsultees}>
+        <Link to="/service/appartement" className="sidebar-item">
           <FaClipboardList /> Annonces
-        </Link> */}
+        </Link>
 
         {/* Modal pour les annonces consultées */}
         <GenericModal

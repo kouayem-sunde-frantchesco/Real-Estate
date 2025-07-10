@@ -243,24 +243,24 @@ const Vehicule = () => {
 };
  
 
-  const [likes, setLikes] = useState({});
-  const [comments, setComments] = useState({});
+  // const [likes, setLikes] = useState({});
+  // const [comments, setComments] = useState({});
   const [selectedService, setSelectedService] = useState(null);
 
-  const handleLike = (id) => {
-    setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
-  };
+  // const handleLike = (id) => {
+  //   setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  // };
 
-  const handleComment = (id, e) => {
-    e.preventDefault();
-    const commentText = e.target.elements.comment.value;
-    if (!commentText) return;
-    setComments((prev) => ({
-      ...prev,
-      [id]: [...(prev[id] || []), commentText],
-    }));
-    e.target.reset();
-  };
+  // const handleComment = (id, e) => {
+  //   e.preventDefault();
+  //   const commentText = e.target.elements.comment.value;
+  //   if (!commentText) return;
+  //   setComments((prev) => ({
+  //     ...prev,
+  //     [id]: [...(prev[id] || []), commentText],
+  //   }));
+  //   e.target.reset();
+  // };
 
   return (
 <>
@@ -299,19 +299,19 @@ const Vehicule = () => {
             <p>
               <strong>Lieu :</strong> {item.location} <br />
               <strong>Statut:</strong> {item.statut} <br/>
-              <a href="#" onClick={() => setSelectedService(item)}>Observer les détails</a>
+              <a href="#" onClick={() => setSelectedService(item)}>Voir plus</a>
             </p>
 
-            <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button>
+            {/* <button onClick={() => handleLike(item.id)}>👍 {likes[item.id] || 0}</button> */}
 
-            <form onSubmit={(e) => handleComment(item.id, e)}>
+            {/* <form onSubmit={(e) => handleComment(item.id, e)}>
               <input type="text" name="comment" placeholder="Laissez un commentaire" />
             </form>
             <button type="submit">Envoyer</button>
 
             <ul className="comment-list">
               {(comments[item.id] || []).map((c, i) => <li key={i}>{c}</li>)}
-            </ul>
+            </ul> */}
 
             {/* 🔗 Lien vers WhatsApp */}
             <a
