@@ -47,8 +47,9 @@ const Signin = () => {
 const handleSubmit = async (e) => {
   e.preventDefault();
   const validationErrors = validate();
-  setErrors(validationErrors);
+  setErrors(validationErrors)
   setSuccess(false);
+
 
   if (Object.keys(validationErrors).length === 0) {
     try {
