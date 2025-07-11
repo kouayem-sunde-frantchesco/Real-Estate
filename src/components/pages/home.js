@@ -14,7 +14,7 @@ const Home = () => {
     padding: '100px 0',
   };
 
-  const categories1 = [
+  const appartement = [
     { name: 'Maisons', image: '/images/m13.avif' },
     { name: 'Appartements', image: '/images/h4.avif' },
     { name: 'Studios', image: '/images/m14.jpg' },
@@ -22,7 +22,7 @@ const Home = () => {
     { name: 'Terrains', image: '/images/t1.jpeg' },
   ];
 
-  const categories3 = [
+  const maison = [
     { name: 'Maisons', image: '/images/m2.avif' },
     { name: 'Appartements', image: '/images/hall6.avif' },
     { name: 'Studios', image: '/images/m12.avif' },
@@ -30,7 +30,7 @@ const Home = () => {
     { name: 'Terrains', image: '/images/t3.jpg' },
   ];
 
-  const categories4 = [
+  const studio = [
     { name: 'Maisons', image: '/images/m7.avif' },
     { name: 'Appartements meublé', image: '/images/hall2.avif' },
     { name: 'Studios', image: '/images/m10.avif' },
@@ -58,7 +58,7 @@ const Home = () => {
       <Slider {...settings} className="category-slider">
         {categories.map((cat, index) => (
           <div key={index} className="category-card">
-            <Link to={`/categories?category=${cat.name.toLowerCase()}`}>
+            <Link to={`/service/appartement=${cat.name.toLowerCase()}`}>
               <img src={cat.image} alt={cat.name} />
               <span>{cat.name}</span>
             </Link>
@@ -104,9 +104,10 @@ const Home = () => {
         </a>
       </header>
 
-      {renderSlider("Nos Offres", categories1)}
-      {renderSlider("Nos Offres", categories3)}
-      {renderSlider("Nos Offres", categories4)}
+      {renderSlider("Nos Offres", appartement)}
+      {renderSlider("Nos Offres", maison)}
+      {renderSlider("Nos Offres", studio)}
+      
 
       <section className="info-section">
         <h2>Pourquoi choisir notre plateforme ?</h2>

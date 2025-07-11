@@ -46,7 +46,7 @@ function Contact() {
     if (Object.keys(validationErrors).length === 0) {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:4000/avis", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/avis`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form),

@@ -303,7 +303,7 @@ const generatePDF = async (service, buyer) => {
   formData.append('email', buyer.email);
 
   try {
-    const res = await fetch('http://localhost:4000/contratRoutes', { 
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/contratRoutes`, { 
       method: 'POST',
       body: formData,
     });
