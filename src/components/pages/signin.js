@@ -53,7 +53,7 @@ const handleSubmit = async (e) => {
 
   if (Object.keys(validationErrors).length === 0) {
     try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/signup`, {
+        const response = await fetch(`${'http://109.199.107.125:5001'}/auth/signup`, {
           method: "POST",
           headers: { "Content-Type": "application/json" 
           },

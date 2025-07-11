@@ -34,7 +34,7 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/forgot-password`, {
+    const response = await fetch(`${'http://109.199.107.125:5001'}/auth/forgot-password`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -29,7 +29,7 @@ const RendezVous = () => {
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/rendezvous`, {
+      const response = await fetch(`${'http://109.199.107.125:5001'}/rendezvous`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
